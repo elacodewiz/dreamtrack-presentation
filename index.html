@@ -384,7 +384,46 @@ strong { font-weight: 600; color: var(--black); }
 </div>
 
 
-<!-- SLIDE 5: SOLUTION -->
+<!-- SLIDE: DREAM VIDEO -->
+<div class="slide">
+  <div class="eyebrow">A Feature We Built</div>
+  <h2>Every dream becomes<br/>a short film.</h2>
+  <p class="lead">After each recording is processed, the app automatically generates a unique AI video of the dream using Runway Gen-4 Turbo.</p>
+
+  <div class="timeline" style="max-width:740px; margin-top:24px;">
+    <div class="tl-row">
+      <div class="tl-n">1</div>
+      <div class="tl-content">
+        <div class="tl-title">Claude writes a visual prompt from the dream transcript</div>
+        <div class="tl-desc">Up to 50 words describing the dream scene as a cinematic video prompt. If the user has a profile photo, their face is described and added to the prompt.</div>
+      </div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-n">2</div>
+      <div class="tl-content">
+        <div class="tl-title">Runway Gen-4 Turbo renders an image-to-video</div>
+        <div class="tl-desc">The prompt is sent to Runway's API. The backend polls until the video is ready, then downloads it and stores it privately in S3.</div>
+      </div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-n">3</div>
+      <div class="tl-content">
+        <div class="tl-title">Content moderation is handled automatically</div>
+        <div class="tl-desc">If Runway rejects a prompt for content reasons, Claude rewrites it to soften the imagery and retries once. If still blocked, the app shows a gentle message instead of an error.</div>
+      </div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-n">4</div>
+      <div class="tl-content">
+        <div class="tl-title">The video appears in the dream journal entry</div>
+        <div class="tl-desc">The frontend polls for the video after processing completes. Each journal entry has its own unique dream film alongside the biomarker data.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SLIDE: SOLUTION -->
 <div class="slide">
   <div class="eyebrow">The Solution</div>
   <h2>Two minutes every morning.</h2>
