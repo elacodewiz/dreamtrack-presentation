@@ -5,26 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DreamTrack — Built by Ela Unlu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg:      #FAF5FF;
-  --white:   #ffffff;
-  --border:  #EDE9FE;
-  --b100:    #EDE9FE;
-  --b200:    #DDD6FE;
-  --b300:    #C4B5FD;
-  --b400:    #A78BFA;
-  --b500:    #8B5CF6;
-  --b600:    #7C3AED;
-  --b700:    #6D28D9;
-  --b800:    #5B21B6;
-  --b900:    #4C1D95;
-  --fg:      #1e1b4b;
-  --mid:     #4b5563;
-  --muted:   #9ca3af;
+  --black:  #0a0a0a;
+  --dark:   #1a1a1a;
+  --mid:    #555555;
+  --light:  #999999;
+  --border: #e0e0e0;
+  --bg:     #ffffff;
+  --bg2:    #f7f7f7;
 }
 
 html, body {
@@ -32,7 +24,7 @@ html, body {
   overflow: hidden;
   font-family: 'Noto Sans', system-ui, sans-serif;
   background: var(--bg);
-  color: var(--fg);
+  color: var(--black);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -42,249 +34,236 @@ html, body {
   position: absolute; inset: 0;
   display: flex; flex-direction: column;
   justify-content: center; align-items: center;
-  padding: 56px 80px;
+  padding: 60px 88px;
   opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateY(12px);
+  transition: opacity 0.38s ease, transform 0.38s ease;
   pointer-events: none;
-  overflow: hidden;
 }
 .slide.active { opacity: 1; transform: translateY(0); pointer-events: all; }
-.slide.out    { opacity: 0; transform: translateY(-14px); }
-
-.slide::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(var(--b100) 1px, transparent 1px),
-    linear-gradient(90deg, var(--b100) 1px, transparent 1px);
-  background-size: 44px 44px;
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-.blob {
-  position: absolute; border-radius: 50%;
-  filter: blur(90px); opacity: 0.2; pointer-events: none;
-}
-.slide > *:not(.blob) { position: relative; z-index: 1; }
+.slide.out    { opacity: 0; transform: translateY(-12px); }
 
 /* TYPOGRAPHY */
 .eyebrow {
-  font-size: 10px; font-weight: 700;
-  letter-spacing: 3px; text-transform: uppercase;
-  color: var(--b500); margin-bottom: 16px;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 3.5px; text-transform: uppercase;
+  color: var(--light); margin-bottom: 18px;
 }
 
 h1 {
   font-family: 'Figtree', sans-serif;
-  font-size: clamp(42px, 6vw, 76px);
-  font-weight: 800; line-height: 1.06;
-  letter-spacing: -2px; color: var(--b900);
+  font-size: clamp(44px, 6vw, 78px);
+  font-weight: 800; line-height: 1.05;
+  letter-spacing: -2.5px; color: var(--black);
   text-align: center;
 }
 
 h2 {
   font-family: 'Figtree', sans-serif;
-  font-size: clamp(30px, 4vw, 52px);
-  font-weight: 700; line-height: 1.1;
-  letter-spacing: -1.2px; color: var(--b900);
+  font-size: clamp(32px, 4.2vw, 54px);
+  font-weight: 700; line-height: 1.08;
+  letter-spacing: -1.5px; color: var(--black);
   text-align: center; margin-bottom: 14px;
 }
 
 h3 {
   font-family: 'Figtree', sans-serif;
-  font-size: clamp(20px, 2.5vw, 32px);
-  font-weight: 700; line-height: 1.2;
-  letter-spacing: -0.5px; color: var(--b900);
+  font-size: clamp(22px, 2.8vw, 36px);
+  font-weight: 700; line-height: 1.15;
+  letter-spacing: -0.8px; color: var(--black);
   text-align: center; margin-bottom: 10px;
 }
 
 .lead {
-  font-size: clamp(14px, 1.35vw, 17px);
-  color: var(--mid); line-height: 1.7;
-  text-align: center; max-width: 600px;
+  font-size: clamp(14px, 1.3vw, 17px);
+  color: var(--mid); line-height: 1.72;
+  text-align: center; max-width: 580px;
   font-weight: 400;
 }
 
-.purple { color: var(--b600); }
-.strong { color: var(--b900); font-weight: 600; }
+em { font-style: italic; color: var(--black); }
+strong { font-weight: 600; color: var(--black); }
 
 /* LOGO */
 .logo {
-  display: flex; align-items: center; gap: 9px;
-  margin-bottom: 24px;
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 28px;
 }
 .logo-text {
   font-family: 'Figtree', sans-serif;
-  font-size: 17px; font-weight: 700;
-  color: var(--b900); letter-spacing: -0.3px;
+  font-size: 16px; font-weight: 700;
+  color: var(--black); letter-spacing: -0.3px;
+}
+
+/* DIVIDER */
+.divider {
+  width: 40px; height: 1px;
+  background: var(--border); margin: 20px auto;
 }
 
 /* TAGS */
 .tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 22px; }
 .tag {
-  background: var(--white); border: 1px solid var(--b200);
+  border: 1px solid var(--border);
   border-radius: 100px; padding: 5px 13px;
-  font-size: 12px; font-weight: 500; color: var(--b700);
+  font-size: 11.5px; font-weight: 500; color: var(--mid);
 }
 
+/* TWO-COL */
+.two-col {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 48px; width: 100%; max-width: 880px; margin-top: 24px;
+  align-items: start;
+}
+
+.col-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--light);
+  margin-bottom: 16px; border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.list-item {
+  display: flex; gap: 12px; align-items: flex-start; margin-bottom: 13px;
+}
+.list-mark {
+  width: 1px; height: 100%; min-height: 14px;
+  background: var(--border); flex-shrink: 0; margin-top: 5px;
+}
+.list-text { font-size: 13px; color: var(--mid); line-height: 1.6; }
+
 /* CARDS */
-.cards { display: grid; gap: 12px; width: 100%; max-width: 880px; margin-top: 24px; }
+.cards { display: grid; gap: 1px; width: 100%; max-width: 860px; margin-top: 24px; background: var(--border); border: 1px solid var(--border); }
 .c2 { grid-template-columns: 1fr 1fr; }
 .c3 { grid-template-columns: 1fr 1fr 1fr; }
 
 .card {
-  background: var(--white); border: 1px solid var(--border);
-  border-radius: 18px; padding: 20px 22px;
-  box-shadow: 0 1px 6px rgba(109,40,217,0.06);
+  background: var(--bg);
+  padding: 22px 24px;
 }
-.card-icon { font-size: 22px; margin-bottom: 9px; }
+.card-num {
+  font-family: 'Figtree', sans-serif;
+  font-size: 11px; font-weight: 700; color: var(--light);
+  margin-bottom: 10px; letter-spacing: 1px;
+}
 .card-title {
-  font-family: 'Figtree', sans-serif; font-size: 13.5px;
-  font-weight: 700; color: var(--b900); margin-bottom: 5px;
-}
-.card-body { font-size: 12.5px; color: var(--mid); line-height: 1.55; }
-
-/* RESEARCH CARDS */
-.research-card {
-  background: var(--white); border: 1px solid var(--border);
-  border-radius: 18px; padding: 20px 24px;
-  box-shadow: 0 1px 6px rgba(109,40,217,0.06);
-  text-align: left;
-}
-.rc-label {
-  font-size: 10px; font-weight: 700; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--b400); margin-bottom: 7px;
-}
-.rc-finding {
   font-family: 'Figtree', sans-serif; font-size: 14px;
-  font-weight: 600; color: var(--b900); line-height: 1.4; margin-bottom: 6px;
+  font-weight: 700; color: var(--black); margin-bottom: 6px;
 }
-.rc-source { font-size: 11px; color: var(--muted); font-style: italic; }
+.card-body { font-size: 12.5px; color: var(--mid); line-height: 1.6; }
+.card-source { font-size: 11px; color: var(--light); margin-top: 8px; font-style: italic; }
 
 /* FLOW */
-.flow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 24px; max-width: 860px; }
-.step {
-  background: var(--white); border: 1px solid var(--border);
-  border-radius: 16px; padding: 16px 18px; text-align: center; min-width: 110px;
-  box-shadow: 0 1px 6px rgba(109,40,217,0.05);
+.flow {
+  display: flex; width: 100%; max-width: 820px;
+  margin-top: 28px; border: 1px solid var(--border);
 }
-.step-icon { font-size: 26px; margin-bottom: 6px; }
-.step-label { font-size: 11px; font-weight: 600; color: var(--b800); line-height: 1.35; }
-.step-arr { font-size: 16px; color: var(--b300); }
+.flow-step {
+  flex: 1; padding: 20px 18px; border-right: 1px solid var(--border);
+  text-align: center;
+}
+.flow-step:last-child { border-right: none; }
+.flow-num {
+  font-family: 'Figtree', sans-serif; font-size: 11px;
+  font-weight: 700; color: var(--light); margin-bottom: 8px; letter-spacing: 1px;
+}
+.flow-label { font-size: 12.5px; font-weight: 500; color: var(--dark); line-height: 1.4; }
+.flow-sub { font-size: 11px; color: var(--light); margin-top: 4px; line-height: 1.35; }
 
 /* TIMELINE */
-.timeline { display: flex; flex-direction: column; gap: 9px; width: 100%; max-width: 720px; margin-top: 20px; }
+.timeline { display: flex; flex-direction: column; width: 100%; max-width: 700px; margin-top: 20px; border: 1px solid var(--border); }
 .tl-row {
-  display: flex; gap: 14px; align-items: flex-start;
-  background: var(--white); border: 1px solid var(--border);
-  border-radius: 13px; padding: 13px 16px;
+  display: flex; gap: 0; align-items: stretch;
+  border-bottom: 1px solid var(--border);
 }
-.tl-num {
-  width: 22px; height: 22px; border-radius: 50%;
-  background: var(--b100); color: var(--b700);
-  font-size: 11px; font-weight: 700; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center; margin-top: 1px;
+.tl-row:last-child { border-bottom: none; }
+.tl-n {
+  width: 48px; flex-shrink: 0;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 14px;
+  font-family: 'Figtree', sans-serif; font-size: 11px;
+  font-weight: 700; color: var(--light);
+  border-right: 1px solid var(--border);
 }
-.tl-title { font-family: 'Figtree', sans-serif; font-size: 13px; font-weight: 700; color: var(--b900); }
-.tl-desc { font-size: 12px; color: var(--mid); margin-top: 2px; line-height: 1.5; }
-
-/* TWO-COL LAYOUT */
-.two-col {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 48px; width: 100%; max-width: 900px; margin-top: 20px;
-  align-items: start;
-}
-.col-title {
-  font-family: 'Figtree', sans-serif; font-size: 13px;
-  font-weight: 700; color: var(--b500); text-transform: uppercase;
-  letter-spacing: 2px; margin-bottom: 14px;
-}
-.list-item {
-  display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px;
-}
-.list-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--b400); flex-shrink: 0; margin-top: 6px;
-}
-.list-text { font-size: 13px; color: var(--mid); line-height: 1.55; }
+.tl-content { padding: 12px 16px; }
+.tl-title { font-family: 'Figtree', sans-serif; font-size: 13px; font-weight: 700; color: var(--black); margin-bottom: 3px; }
+.tl-desc { font-size: 12px; color: var(--mid); line-height: 1.55; }
 
 /* STATS */
-.stats { display: flex; gap: 52px; flex-wrap: wrap; justify-content: center; margin-top: 28px; }
-.stat { text-align: center; }
+.stats {
+  display: flex; width: 100%; max-width: 760px;
+  margin-top: 28px; border: 1px solid var(--border);
+}
+.stat {
+  flex: 1; padding: 28px 20px; text-align: center;
+  border-right: 1px solid var(--border);
+}
+.stat:last-child { border-right: none; }
 .stat-num {
   font-family: 'Figtree', sans-serif;
-  font-size: clamp(40px, 5.5vw, 64px);
-  font-weight: 900; color: var(--b600); line-height: 1;
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 900; color: var(--black); line-height: 1;
 }
-.stat-label { font-size: 11px; color: var(--muted); margin-top: 5px; text-transform: uppercase; letter-spacing: 1.5px; line-height: 1.4; }
+.stat-label { font-size: 11px; color: var(--light); margin-top: 6px; line-height: 1.4; text-transform: uppercase; letter-spacing: 1px; }
 
-/* QUOTE */
+/* PULL QUOTE */
 .pullquote {
-  background: var(--white); border: 1px solid var(--b200);
-  border-left: 4px solid var(--b400); border-radius: 16px;
-  padding: 24px 30px; max-width: 680px; text-align: left;
-  box-shadow: 0 2px 10px rgba(109,40,217,0.07); margin-top: 24px;
+  max-width: 640px; margin-top: 24px;
+  padding: 24px 28px 24px 24px;
+  border-left: 2px solid var(--black);
+  text-align: left;
 }
-.pullquote p { font-size: 15.5px; line-height: 1.65; color: var(--b900); font-style: italic; }
-.pullquote cite { font-size: 11px; color: var(--muted); margin-top: 10px; display: block; font-style: normal; }
+.pullquote p { font-family: 'Figtree', sans-serif; font-size: 15px; line-height: 1.68; color: var(--dark); font-style: italic; font-weight: 400; }
+.pullquote cite { font-size: 11px; color: var(--light); margin-top: 10px; display: block; font-style: normal; }
 
 /* FINAL */
 .byline {
-  margin-top: 32px; text-align: center;
-  border-top: 1px solid var(--border); padding-top: 20px; width: 100%; max-width: 420px;
+  margin-top: 36px; text-align: center;
+  padding-top: 20px; border-top: 1px solid var(--border);
+  width: 100%; max-width: 360px;
 }
-.byline-name {
-  font-family: 'Figtree', sans-serif; font-size: 14px;
-  font-weight: 700; color: var(--b900);
-}
-.byline-email { font-size: 12px; color: var(--muted); margin-top: 3px; }
+.byline-label { font-size: 10px; color: var(--light); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+.byline-name { font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 700; color: var(--black); }
+.byline-email { font-size: 12px; color: var(--light); margin-top: 3px; }
 
 /* NAV */
 .nav {
   position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
   display: flex; align-items: center; gap: 12px;
-  background: rgba(255,255,255,0.92);
-  border: 1px solid var(--border); border-radius: 100px;
-  padding: 7px 16px; backdrop-filter: blur(20px);
-  box-shadow: 0 4px 20px rgba(109,40,217,0.09); z-index: 99;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 100px; padding: 6px 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07); z-index: 99;
 }
 .nav button {
-  width: 30px; height: 30px; border-radius: 50%;
-  border: 1px solid var(--border); background: var(--bg);
-  color: var(--b700); font-size: 14px; cursor: pointer;
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--bg2);
+  color: var(--dark); font-size: 13px; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   transition: all 0.15s;
 }
-.nav button:hover:not(:disabled) { background: var(--b100); border-color: var(--b300); }
+.nav button:hover:not(:disabled) { background: var(--border); }
 .nav button:disabled { opacity: 0.25; cursor: default; }
-.nav .count { font-size: 12px; font-weight: 600; color: var(--muted); min-width: 40px; text-align: center; }
+.nav .count { font-size: 11px; font-weight: 600; color: var(--light); min-width: 36px; text-align: center; }
 .dots { display: flex; gap: 5px; }
-.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--b200); cursor: pointer; transition: all 0.3s; }
-.dot.on { background: var(--b500); width: 16px; border-radius: 3px; }
-.hint { position: fixed; bottom: 28px; right: 32px; font-size: 11px; color: var(--b300); }
-
-/* SVG LOGO SHORTHAND */
+.dot { width: 5px; height: 5px; border-radius: 50%; background: var(--border); cursor: pointer; transition: all 0.3s; }
+.dot.on { background: var(--black); width: 14px; border-radius: 3px; }
+.hint { position: fixed; bottom: 28px; right: 32px; font-size: 11px; color: var(--border); }
 </style>
 </head>
 <body>
 <div class="deck" id="deck">
 
 
-<!-- SLIDE 1: TITLE -->
+<!-- SLIDE 1 -->
 <div class="slide active">
-  <div class="blob" style="width:480px;height:480px;background:#c4b5fd;top:-120px;right:-80px;"></div>
-  <div class="blob" style="width:260px;height:260px;background:#a78bfa;bottom:-60px;left:-40px;"></div>
-
   <div class="logo">
-    <svg width="38" height="38" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="A1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5b21b6"/><stop offset="100%" stop-color="#1e0a3c"/></linearGradient>
-        <radialGradient id="A2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fef9c3"/><stop offset="100%" stop-color="#fbbf24"/></radialGradient>
-        <filter id="A3" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <linearGradient id="L1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5b21b6"/><stop offset="100%" stop-color="#1e0a3c"/></linearGradient>
+        <radialGradient id="L2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fef9c3"/><stop offset="100%" stop-color="#fbbf24"/></radialGradient>
+        <filter id="L3" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
       </defs>
-      <rect width="40" height="40" rx="10" fill="url(#A1)"/>
+      <rect width="40" height="40" rx="10" fill="url(#L1)"/>
       <line x1="20" y1="6"  x2="20" y2="14" stroke="#c4b5fd" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
       <line x1="34" y1="20" x2="26" y2="20" stroke="#c4b5fd" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
       <line x1="20" y1="34" x2="20" y2="26" stroke="#c4b5fd" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
@@ -293,15 +272,16 @@ h3 {
       <line x1="29.9" y1="29.9" x2="24.2" y2="24.2" stroke="#c4b5fd" stroke-width="1.1" stroke-linecap="round" opacity="0.55"/>
       <line x1="10.1" y1="29.9" x2="15.8" y2="24.2" stroke="#c4b5fd" stroke-width="1.1" stroke-linecap="round" opacity="0.55"/>
       <line x1="10.1" y1="10.1" x2="15.8" y2="15.8" stroke="#c4b5fd" stroke-width="1.1" stroke-linecap="round" opacity="0.55"/>
-      <g filter="url(#A3)"><circle cx="20" cy="20" r="3.2" fill="url(#A2)"/></g>
+      <g filter="url(#L3)"><circle cx="20" cy="20" r="3.2" fill="url(#L2)"/></g>
       <circle cx="20" cy="20" r="1.8" fill="#fef9c3"/>
     </svg>
     <span class="logo-text">DreamTrack Health</span>
   </div>
 
-  <div class="eyebrow">A Health Technology Project</div>
-  <h1 style="margin-bottom:18px;">Record your dream.<br/><span class="purple">Track your brain.</span></h1>
+  <div class="eyebrow">Health Technology Project</div>
+  <h1 style="margin-bottom:20px;">Record your dream.<br/>Track your brain.</h1>
   <p class="lead">What if speaking your dream out loud every morning could give you years of advance warning about Alzheimer's, Parkinson's, or depression?</p>
+  <div class="divider"></div>
   <div class="tags">
     <span class="tag">Voice biomarker analysis</span>
     <span class="tag">Brain health monitoring</span>
@@ -311,258 +291,278 @@ h3 {
 </div>
 
 
-<!-- SLIDE 2: THE PROBLEM -->
+<!-- SLIDE 2 -->
 <div class="slide">
-  <div class="blob" style="width:380px;height:380px;background:#ddd6fe;top:-80px;left:-60px;"></div>
-
   <div class="eyebrow">The Problem</div>
   <h2>Brain diseases are invisible<br/>until it is too late.</h2>
 
-  <div class="two-col" style="gap:32px;">
+  <div class="two-col">
     <div>
-      <div class="col-title">What the research shows</div>
+      <div class="col-label">What the research shows</div>
       <div class="list-item">
-        <div class="list-dot"></div>
-        <div class="list-text">Alzheimer's brain damage begins <span class="strong">15 to 20 years</span> before any memory symptoms appear. (Bateman et al., <em>New England Journal of Medicine</em>, 2012)</div>
+        <div class="list-mark"></div>
+        <div class="list-text">Alzheimer's brain damage begins <strong>15 to 20 years</strong> before any memory symptoms appear. <em>Bateman et al., New England Journal of Medicine, 2012</em></div>
       </div>
       <div class="list-item">
-        <div class="list-dot"></div>
-        <div class="list-text">Speech pattern changes are detectable in Parkinson's patients <span class="strong">up to 10 years</span> before motor symptoms. (Tsanas et al., <em>IEEE TNSRE</em>, 2012)</div>
+        <div class="list-mark"></div>
+        <div class="list-text">Voice changes in Parkinson's are detectable <strong>up to 10 years</strong> before motor symptoms. <em>Tsanas et al., IEEE Transactions on Neural Systems, 2012</em></div>
       </div>
       <div class="list-item">
-        <div class="list-dot"></div>
-        <div class="list-text">REM sleep behavior disorder predicts Parkinson's with <span class="strong">over 90% accuracy</span> decades in advance. (Schenck et al., <em>Sleep</em>, 2013)</div>
+        <div class="list-mark"></div>
+        <div class="list-text">REM sleep behavior disorder predicts Parkinson's with <strong>over 90% accuracy</strong> years in advance. <em>Schenck et al., Sleep, 2013</em></div>
       </div>
       <div class="list-item">
-        <div class="list-dot"></div>
-        <div class="list-text">Language decline in speech predicts Alzheimer's with <span class="strong">81.9% accuracy</span> using AI models. (Fraser et al., <em>Journal of Alzheimer's Disease</em>, 2016)</div>
+        <div class="list-mark"></div>
+        <div class="list-text">Language decline in speech predicts Alzheimer's with <strong>81.9% accuracy</strong> using AI analysis. <em>Fraser et al., Journal of Alzheimer's Disease, 2016</em></div>
       </div>
     </div>
     <div>
-      <div class="col-title">The gap today</div>
+      <div class="col-label">The gap today</div>
       <div class="list-item">
-        <div class="list-dot"></div>
-        <div class="list-text">55 million people worldwide have dementia. Most are diagnosed only after significant damage has occurred.</div>
+        <div class="list-mark"></div>
+        <div class="list-text">55 million people worldwide have dementia. Most are diagnosed only after significant, irreversible damage has occurred.</div>
       </div>
       <div class="list-item">
-        <div class="list-dot"></div>
-        <div class="list-text">Diagnosis requires PET scans, spinal taps, or neuropsychological tests. Most people never get screened at all.</div>
+        <div class="list-mark"></div>
+        <div class="list-text">Diagnosis requires PET scans, spinal taps, or neuropsychological tests. Most people are never screened at all.</div>
       </div>
       <div class="list-item">
-        <div class="list-dot"></div>
-        <div class="list-text">If caught early, drugs that slow progression can be <span class="strong">far more effective</span>. The window exists. We are just not looking.</div>
+        <div class="list-mark"></div>
+        <div class="list-text">If caught early, drugs that slow progression can be far more effective. The detection window exists. We are simply not looking.</div>
       </div>
     </div>
   </div>
 </div>
 
 
-<!-- SLIDE 3: THE SCIENCE -->
+<!-- SLIDE 3 -->
 <div class="slide">
-  <div class="blob" style="width:340px;height:340px;background:#c4b5fd;bottom:-60px;right:-50px;"></div>
+  <div class="eyebrow">The Science</div>
+  <h2>Your voice carries<br/>measurable signals.</h2>
 
-  <div class="eyebrow">The Science Behind It</div>
-  <h2>Your voice holds<br/><span class="purple">measurable signals.</span></h2>
-
-  <div class="cards c2" style="max-width:800px;">
-    <div class="research-card">
-      <div class="rc-label">Voice acoustics</div>
-      <div class="rc-finding">89 acoustic features extracted from a single recording: pitch, jitter, shimmer, speech rate, pause ratio, MFCCs, and more.</div>
-      <div class="rc-source">librosa (McFee et al.) + DementiaBank speech corpus</div>
+  <div class="cards c2" style="max-width:780px;">
+    <div class="card">
+      <div class="card-num">01</div>
+      <div class="card-title">Voice acoustics</div>
+      <div class="card-body">89 acoustic features extracted from a single recording: pitch, jitter, shimmer, speech rate, pause ratio, MFCCs, and more.</div>
+      <div class="card-source">librosa (McFee et al.) + DementiaBank speech corpus</div>
     </div>
-    <div class="research-card">
-      <div class="rc-label">Language patterns</div>
-      <div class="rc-finding">Reduced lexical diversity, shorter sentences, more fillers, and lower information content all precede Alzheimer's diagnosis.</div>
-      <div class="rc-source">Fraser et al., Journal of Alzheimer's Disease, 2016</div>
+    <div class="card">
+      <div class="card-num">02</div>
+      <div class="card-title">Language patterns</div>
+      <div class="card-body">Reduced lexical diversity, shorter sentences, more fillers, and lower information density all precede Alzheimer's diagnosis by years.</div>
+      <div class="card-source">Fraser et al., Journal of Alzheimer's Disease, 2016</div>
     </div>
-    <div class="research-card">
-      <div class="rc-label">Dream content</div>
-      <div class="rc-finding">Narrative incoherence, emotional negativity, and self-motion themes in dreams correlate with REM sleep disorder and Parkinson's risk.</div>
-      <div class="rc-source">Nielsen and Stenstrom, Nature, 2005; Postuma et al., 2019</div>
+    <div class="card">
+      <div class="card-num">03</div>
+      <div class="card-title">Dream content</div>
+      <div class="card-body">Narrative incoherence and self-motion themes in dreams correlate with REM sleep disorder and early Parkinson's risk.</div>
+      <div class="card-source">Nielsen and Stenstrom, Nature, 2005; Postuma et al., 2019</div>
     </div>
-    <div class="research-card">
-      <div class="rc-label">Trend detection</div>
-      <div class="rc-finding">Mann-Kendall statistical analysis detects monotonic trends in biomarker data over 30, 90, and 180-day windows with p-value significance.</div>
-      <div class="rc-source">Mann (1945), Kendall (1975) nonparametric trend test</div>
+    <div class="card">
+      <div class="card-num">04</div>
+      <div class="card-title">Trend detection</div>
+      <div class="card-body">Mann-Kendall nonparametric analysis detects monotonic trends in biomarker data over 30, 90, and 180-day windows with significance testing.</div>
+      <div class="card-source">Mann (1945), Kendall (1975)</div>
     </div>
   </div>
 </div>
 
 
-<!-- SLIDE 4: THE SOLUTION -->
+<!-- SLIDE 4 -->
 <div class="slide">
-  <div class="blob" style="width:400px;height:400px;background:#ddd6fe;top:-90px;right:-60px;"></div>
-
   <div class="eyebrow">The Solution</div>
-  <h2>Two minutes every morning.<br/><span class="purple">That is all.</span></h2>
-  <p class="lead" style="margin-bottom:4px;">Speak your dream after you wake up. The app does the rest automatically.</p>
+  <h2>Two minutes every morning.</h2>
+  <p class="lead">Speak your dream when you wake up. DreamTrack records it, analyzes it, and builds a picture of your brain health over months and years.</p>
 
-  <div class="flow">
-    <div class="step"><div class="step-icon">🛌</div><div class="step-label">Wake up</div></div>
-    <div class="step-arr">&#8594;</div>
-    <div class="step"><div class="step-icon">🎙</div><div class="step-label">Record your dream<br/>(2 minutes)</div></div>
-    <div class="step-arr">&#8594;</div>
-    <div class="step"><div class="step-icon">☁️</div><div class="step-label">Secure upload<br/>to cloud</div></div>
-    <div class="step-arr">&#8594;</div>
-    <div class="step"><div class="step-icon">🔬</div><div class="step-label">AI analyzes<br/>voice and text</div></div>
-    <div class="step-arr">&#8594;</div>
-    <div class="step"><div class="step-icon">📊</div><div class="step-label">Trends tracked<br/>over months</div></div>
-    <div class="step-arr">&#8594;</div>
-    <div class="step"><div class="step-icon">👩‍⚕️</div><div class="step-label">Share report<br/>with doctor</div></div>
+  <div class="flow" style="margin-top:28px;">
+    <div class="flow-step">
+      <div class="flow-num">01</div>
+      <div class="flow-label">Wake up</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">02</div>
+      <div class="flow-label">Record dream</div>
+      <div class="flow-sub">2 minutes</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">03</div>
+      <div class="flow-label">Secure upload</div>
+      <div class="flow-sub">encrypted cloud</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">04</div>
+      <div class="flow-label">AI analysis</div>
+      <div class="flow-sub">voice and text</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">05</div>
+      <div class="flow-label">Trend tracking</div>
+      <div class="flow-sub">months and years</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">06</div>
+      <div class="flow-label">Doctor report</div>
+      <div class="flow-sub">PDF download</div>
+    </div>
   </div>
 
-  <p class="lead" style="margin-top:22px; font-size:13px; color:#a78bfa;">No wearables. No hospital visits. No needles.</p>
+  <p class="lead" style="margin-top:24px; font-size:13px;">No wearables. No hospital visits. No needles.</p>
 </div>
 
 
-<!-- SLIDE 5: HOW IT WORKS TECHNICALLY -->
+<!-- SLIDE 5 -->
 <div class="slide">
-  <div class="blob" style="width:300px;height:300px;background:#c4b5fd;bottom:-40px;left:-40px;"></div>
-
-  <div class="eyebrow">Under the Hood</div>
+  <div class="eyebrow">Technical Process</div>
   <h3>What happens to your recording?</h3>
 
   <div class="timeline">
     <div class="tl-row">
-      <div class="tl-num">1</div>
-      <div><div class="tl-title">Upload and encryption</div><div class="tl-desc">Audio is stored in Amazon S3 with AES-256 encryption. The file is private and never accessible publicly.</div></div>
+      <div class="tl-n">01</div>
+      <div class="tl-content"><div class="tl-title">Upload and encryption</div><div class="tl-desc">Audio stored in Amazon S3 with AES-256 encryption. Private by default, no public access.</div></div>
     </div>
     <div class="tl-row">
-      <div class="tl-num">2</div>
-      <div><div class="tl-title">Transcription</div><div class="tl-desc">AWS Transcribe converts speech to text. OpenAI Whisper runs as a fallback for higher accuracy on unclear audio.</div></div>
+      <div class="tl-n">02</div>
+      <div class="tl-content"><div class="tl-title">Transcription</div><div class="tl-desc">AWS Transcribe converts speech to text. OpenAI Whisper runs as fallback for higher accuracy.</div></div>
     </div>
     <div class="tl-row">
-      <div class="tl-num">3</div>
-      <div><div class="tl-title">Voice feature extraction (89 measurements)</div><div class="tl-desc">librosa analyzes the raw audio: fundamental frequency, jitter, shimmer, speech rate, pause ratio, 13 MFCCs, and more.</div></div>
+      <div class="tl-n">03</div>
+      <div class="tl-content"><div class="tl-title">Voice feature extraction</div><div class="tl-desc">librosa analyzes raw audio across 89 dimensions: fundamental frequency, jitter, shimmer, speech rate, pause ratio, 13 MFCCs, and more.</div></div>
     </div>
     <div class="tl-row">
-      <div class="tl-num">4</div>
-      <div><div class="tl-title">Dream narrative analysis</div><div class="tl-desc">Claude AI reads the transcript and measures coherence, emotional valence, thematic content, and lexical richness using sentence-transformers.</div></div>
+      <div class="tl-n">04</div>
+      <div class="tl-content"><div class="tl-title">Dream narrative analysis</div><div class="tl-desc">Claude AI reads the transcript and measures coherence, emotional valence, thematic content, and lexical richness using sentence-transformers.</div></div>
     </div>
     <div class="tl-row">
-      <div class="tl-num">5</div>
-      <div><div class="tl-title">Biomarker scoring and trend detection</div><div class="tl-desc">Scores are written to a TimescaleDB time-series table. Mann-Kendall trend analysis runs over the selected window and flags significant changes.</div></div>
+      <div class="tl-n">05</div>
+      <div class="tl-content"><div class="tl-title">Scoring and trend detection</div><div class="tl-desc">Scores written to a TimescaleDB time-series table. Mann-Kendall trend analysis runs over the selected window and flags significant changes.</div></div>
     </div>
   </div>
 </div>
 
 
-<!-- SLIDE 6: TECH STACK -->
+<!-- SLIDE 6 -->
 <div class="slide">
-  <div class="blob" style="width:360px;height:360px;background:#ddd6fe;top:-70px;right:-50px;"></div>
+  <div class="eyebrow">Infrastructure</div>
+  <h3>A production-grade application.</h3>
 
-  <div class="eyebrow">Built With</div>
-  <h3>A production application on real infrastructure.</h3>
-
-  <div class="cards c3" style="max-width:860px; margin-top:20px;">
+  <div class="cards c3" style="max-width:840px; margin-top:20px;">
     <div class="card">
-      <div class="card-icon">🌐</div>
-      <div class="card-title">Frontend</div>
-      <div class="card-body">Next.js 14, React, TypeScript, Tailwind CSS. Deployed on Vercel's global CDN. Charts built with Recharts.</div>
+      <div class="card-num">Frontend</div>
+      <div class="card-title">Next.js 14</div>
+      <div class="card-body">React, TypeScript, Tailwind CSS. Deployed on Vercel's global CDN. Charts built with Recharts.</div>
     </div>
     <div class="card">
-      <div class="card-icon">⚙️</div>
-      <div class="card-title">Backend API</div>
-      <div class="card-body">FastAPI (async Python). Runs on Amazon ECS Fargate. Celery and Redis handle background processing.</div>
+      <div class="card-num">Backend</div>
+      <div class="card-title">FastAPI</div>
+      <div class="card-body">Async Python on Amazon ECS Fargate. Celery and Redis handle background processing queues.</div>
     </div>
     <div class="card">
-      <div class="card-icon">🗄️</div>
-      <div class="card-title">Database</div>
-      <div class="card-body">PostgreSQL 15 with TimescaleDB extension for time-series biomarker data. RDS in a private subnet.</div>
+      <div class="card-num">Database</div>
+      <div class="card-title">PostgreSQL</div>
+      <div class="card-body">TimescaleDB extension for time-series biomarker data. Private subnet, no public access.</div>
     </div>
     <div class="card">
-      <div class="card-icon">🔐</div>
-      <div class="card-title">Auth and Privacy</div>
-      <div class="card-body">AWS Cognito with email verification. Plain email addresses are never stored, only SHA-256 hashes.</div>
+      <div class="card-num">Auth</div>
+      <div class="card-title">AWS Cognito</div>
+      <div class="card-body">Email verification with 6-digit codes. Plain email addresses are never stored, only SHA-256 hashes.</div>
     </div>
     <div class="card">
-      <div class="card-icon">🤖</div>
-      <div class="card-title">AI Models</div>
-      <div class="card-body">Claude (Anthropic) for dream interpretation. Whisper (OpenAI) for transcription. Runway Gen-4 for video generation.</div>
+      <div class="card-num">AI Models</div>
+      <div class="card-title">Claude + Whisper</div>
+      <div class="card-body">Anthropic Claude for dream interpretation. OpenAI Whisper for transcription. Runway Gen-4 for video generation.</div>
     </div>
     <div class="card">
-      <div class="card-icon">📦</div>
-      <div class="card-title">DevOps</div>
-      <div class="card-body">Docker images pushed to ECR. CodeBuild pipeline deploys to ECS on every release. Secrets Manager for API keys.</div>
+      <div class="card-num">DevOps</div>
+      <div class="card-title">Docker + CodeBuild</div>
+      <div class="card-body">Docker images pushed to ECR. CodeBuild pipeline deploys to ECS on each release. API keys in Secrets Manager.</div>
     </div>
   </div>
 </div>
 
 
-<!-- SLIDE 7: BUILT WITH CLAUDE -->
+<!-- SLIDE 7 -->
 <div class="slide">
-  <div class="blob" style="width:340px;height:340px;background:#c4b5fd;bottom:-50px;right:-40px;"></div>
-
   <div class="eyebrow">Development Process</div>
-  <h2>The entire app was built<br/><span class="purple">through conversation.</span></h2>
+  <h2>Built entirely through<br/>conversation with Claude AI.</h2>
 
-  <div class="two-col" style="gap:40px; margin-top:24px;">
+  <div class="two-col" style="margin-top:28px;">
     <div>
-      <div class="col-title">What Claude helped with</div>
+      <div class="col-label">What Claude handled</div>
       <div class="list-item">
-        <div class="list-dot"></div>
-        <div class="list-text"><span class="strong">Database schema design</span> — how to structure time-series biomarker tables for trend analysis</div>
+        <div class="list-mark"></div>
+        <div class="list-text"><strong>Database schema design</strong> for time-series biomarker tables and trend analysis queries</div>
       </div>
       <div class="list-item">
-        <div class="list-dot"></div>
-        <div class="list-text"><span class="strong">Cloud architecture</span> — connecting ECS, RDS, S3, Cognito, Secrets Manager, and ALB together correctly</div>
+        <div class="list-mark"></div>
+        <div class="list-text"><strong>Cloud architecture</strong> connecting ECS, RDS, S3, Cognito, Secrets Manager, and ALB</div>
       </div>
       <div class="list-item">
-        <div class="list-dot"></div>
-        <div class="list-text"><span class="strong">All UI components</span> — every screen, chart, animation, and interaction was written in conversation</div>
+        <div class="list-mark"></div>
+        <div class="list-text"><strong>All UI components</strong>: every screen, chart, animation, and interaction</div>
       </div>
       <div class="list-item">
-        <div class="list-dot"></div>
-        <div class="list-text"><span class="strong">Live debugging</span> — diagnosing failed deployments, broken email flows, and AWS permission errors in real time</div>
+        <div class="list-mark"></div>
+        <div class="list-text"><strong>Live debugging</strong>: failed deployments, broken email flows, AWS permission errors</div>
       </div>
       <div class="list-item">
-        <div class="list-dot"></div>
-        <div class="list-text"><span class="strong">Security review</span> — JWT handling, SQL injection prevention, IAM policies, encrypted storage</div>
+        <div class="list-mark"></div>
+        <div class="list-text"><strong>Security review</strong>: JWT handling, SQL injection prevention, IAM policies, encrypted storage</div>
       </div>
     </div>
     <div>
-      <div class="col-title">How the collaboration worked</div>
+      <div class="col-label">How the collaboration worked</div>
       <div class="list-item">
-        <div class="list-dot"></div>
-        <div class="list-text">The human provided the product vision, made all key decisions, and validated every feature against the real goal.</div>
+        <div class="list-mark"></div>
+        <div class="list-text">The human provided the product vision, made all key decisions, and validated every feature.</div>
       </div>
       <div class="list-item">
-        <div class="list-dot"></div>
-        <div class="list-text">Claude wrote the implementation: backend endpoints, frontend components, cloud configuration files, deployment scripts.</div>
+        <div class="list-mark"></div>
+        <div class="list-text">Claude wrote the implementation: backend endpoints, frontend components, cloud configuration, deployment scripts.</div>
       </div>
       <div class="list-item">
-        <div class="list-dot"></div>
-        <div class="list-text">Every problem was solved through dialogue, not by searching documentation or copying examples.</div>
+        <div class="list-mark"></div>
+        <div class="list-text">Every technical problem was solved through dialogue, not by searching documentation or copying examples.</div>
       </div>
       <div class="list-item">
-        <div class="list-dot"></div>
-        <div class="list-text">This is how software development is changing: not fewer skills required, but a different way of applying them.</div>
+        <div class="list-mark"></div>
+        <div class="list-text">This is how software development is changing: not fewer skills required, but a fundamentally different way of working.</div>
       </div>
     </div>
   </div>
 </div>
 
 
-<!-- SLIDE 8: WHAT WAS BUILT -->
+<!-- SLIDE 8 -->
 <div class="slide">
-  <div class="blob" style="width:380px;height:380px;background:#ddd6fe;top:-80px;left:-60px;"></div>
-
-  <div class="eyebrow">What Was Accomplished</div>
-  <h2>A complete, live health platform.</h2>
+  <div class="eyebrow">What Was Built</div>
+  <h2>A complete health platform.<br/>Live today.</h2>
 
   <div class="stats">
-    <div class="stat"><div class="stat-num">89</div><div class="stat-label">Voice biomarkers<br/>per recording</div></div>
-    <div class="stat"><div class="stat-num">3</div><div class="stat-label">AI models<br/>working together</div></div>
-    <div class="stat"><div class="stat-num">5</div><div class="stat-label">AWS services<br/>integrated</div></div>
-    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Live in<br/>production</div></div>
+    <div class="stat">
+      <div class="stat-num">89</div>
+      <div class="stat-label">Voice biomarkers<br/>per recording</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">AI models<br/>integrated</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">5</div>
+      <div class="stat-label">AWS services<br/>connected</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Live in<br/>production</div>
+    </div>
   </div>
 
-  <div class="tags" style="margin-top:28px;">
-    <span class="tag">Email verification system</span>
+  <div class="tags" style="margin-top:24px;">
+    <span class="tag">Email verification</span>
     <span class="tag">AI dream video generation</span>
     <span class="tag">GP report PDF download</span>
     <span class="tag">Family member tracking</span>
-    <span class="tag">Admin panel with analytics</span>
+    <span class="tag">Admin analytics panel</span>
     <span class="tag">30 / 90 / 180-day trend charts</span>
     <span class="tag">Automatic health alerts</span>
     <span class="tag">Secure login with token refresh</span>
@@ -570,19 +570,16 @@ h3 {
 </div>
 
 
-<!-- SLIDE 9: THE VISION -->
+<!-- SLIDE 9 -->
 <div class="slide">
-  <div class="blob" style="width:420px;height:420px;background:#c4b5fd;top:-100px;right:-70px;"></div>
-  <div class="blob" style="width:260px;height:260px;background:#ddd6fe;bottom:-50px;left:-40px;"></div>
-
-  <div class="logo" style="margin-bottom:18px;">
-    <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <div class="logo" style="margin-bottom:20px;">
+    <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="Z1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5b21b6"/><stop offset="100%" stop-color="#1e0a3c"/></linearGradient>
-        <radialGradient id="Z2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fef9c3"/><stop offset="100%" stop-color="#fbbf24"/></radialGradient>
-        <filter id="Z3" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <linearGradient id="M1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5b21b6"/><stop offset="100%" stop-color="#1e0a3c"/></linearGradient>
+        <radialGradient id="M2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fef9c3"/><stop offset="100%" stop-color="#fbbf24"/></radialGradient>
+        <filter id="M3" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
       </defs>
-      <rect width="40" height="40" rx="10" fill="url(#Z1)"/>
+      <rect width="40" height="40" rx="10" fill="url(#M1)"/>
       <line x1="20" y1="6"  x2="20" y2="14" stroke="#c4b5fd" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
       <line x1="34" y1="20" x2="26" y2="20" stroke="#c4b5fd" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
       <line x1="20" y1="34" x2="20" y2="26" stroke="#c4b5fd" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
@@ -591,14 +588,14 @@ h3 {
       <line x1="29.9" y1="29.9" x2="24.2" y2="24.2" stroke="#c4b5fd" stroke-width="1.1" stroke-linecap="round" opacity="0.55"/>
       <line x1="10.1" y1="29.9" x2="15.8" y2="24.2" stroke="#c4b5fd" stroke-width="1.1" stroke-linecap="round" opacity="0.55"/>
       <line x1="10.1" y1="10.1" x2="15.8" y2="15.8" stroke="#c4b5fd" stroke-width="1.1" stroke-linecap="round" opacity="0.55"/>
-      <g filter="url(#Z3)"><circle cx="20" cy="20" r="3.2" fill="url(#Z2)"/></g>
+      <g filter="url(#M3)"><circle cx="20" cy="20" r="3.2" fill="url(#M2)"/></g>
       <circle cx="20" cy="20" r="1.8" fill="#fef9c3"/>
     </svg>
     <span class="logo-text">DreamTrack Health</span>
   </div>
 
   <div class="eyebrow">The Goal</div>
-  <h2>Make early detection<br/><span class="purple">effortless and free.</span></h2>
+  <h2>Make early detection<br/>effortless and free.</h2>
 
   <div class="pullquote">
     <p>"If Alzheimer's is identified a decade before symptoms, interventions that slow progression become dramatically more effective. The biological window exists. The tools now exist. The only missing piece is making screening part of daily life."</p>
@@ -606,7 +603,7 @@ h3 {
   </div>
 
   <div class="byline">
-    <div style="font-size:13px; color:#6b7280; margin-bottom:10px;">Built by</div>
+    <div class="byline-label">Built by</div>
     <div class="byline-name">Ela Unlu</div>
     <div class="byline-email">elaunlu99@gmail.com</div>
   </div>
@@ -615,7 +612,6 @@ h3 {
 
 </div>
 
-<!-- NAV -->
 <div class="nav">
   <button id="bp" onclick="go(-1)">&#8592;</button>
   <div class="dots" id="dots"></div>
@@ -640,7 +636,7 @@ function goTo(n) {
   slides[cur].classList.remove('active');
   slides[cur].classList.add('out');
   const prev = cur; cur = n;
-  setTimeout(() => slides[prev].classList.remove('out'), 420);
+  setTimeout(() => slides[prev].classList.remove('out'), 400);
   slides[cur].classList.add('active');
   document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('on', i === cur));
   document.getElementById('cnt').textContent = (cur + 1) + ' / ' + N;
