@@ -33,11 +33,7 @@ html, body {
 .dim   { background:#0d0b1e; color:#ffffff; }
 
 /* grid bg for light slides */
-.light::before {
-  content:''; position:absolute; inset:0; pointer-events:none;
-  background-image: linear-gradient(#f0ebff 1px,transparent 1px), linear-gradient(90deg,#f0ebff 1px,transparent 1px);
-  background-size:44px 44px; opacity:.6;
-}
+/* light grid removed */
 .slide>*:not(.bg) { position:relative; z-index:1; }
 
 /* aurora for dark slides */
@@ -159,14 +155,14 @@ em { font-style:italic; }
 .dark em, .dim em { color:rgba(255,255,255,.3); }
 
 /* ─── CARDS GRID ─── */
-.cards { display:grid; gap:1px; background:#e5e7eb; border:1px solid #e5e7eb; width:100%; max-width:840px; margin-top:22px; }
+.cards { display:grid; gap:1px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); width:100%; max-width:840px; margin-top:22px; }
 .c2 { grid-template-columns:1fr 1fr; }
 .c3 { grid-template-columns:1fr 1fr 1fr; }
-.card { background:#fff; padding:20px 22px; }
-.card-label { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#9ca3af; margin-bottom:8px; }
-.card-title { font-family:'Figtree',sans-serif; font-size:14px; font-weight:700; color:#111; margin-bottom:5px; }
-.card-body { font-size:12.5px; color:#666; line-height:1.6; }
-.card-cite { font-size:11px; color:#bbb; margin-top:7px; font-style:italic; }
+.card { background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.08) !important; padding:20px 22px; }
+.card-label { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:8px; }
+.card-title { font-family:'Figtree',sans-serif; font-size:14px; font-weight:700; color:rgba(255,255,255,.85); margin-bottom:5px; }
+.card-body { font-size:12.5px; color:rgba(255,255,255,.45); line-height:1.6; }
+.card-cite { font-size:11px; color:rgba(255,255,255,.2); margin-top:7px; font-style:italic; }
 
 /* dark cards */
 .dark-card {
@@ -192,18 +188,18 @@ em { font-style:italic; }
 .tl-d { font-size:12px; color:rgba(255,255,255,.4); line-height:1.55; }
 
 /* light timeline */
-.light-tl { display:flex; flex-direction:column; width:100%; max-width:700px; margin-top:20px; border:1px solid #e5e7eb; }
-.light-tl .tl-row { border-bottom:1px solid #e5e7eb; }
-.light-tl .tl-n { color:#bbb; border-right:1px solid #e5e7eb; }
-.light-tl .tl-t { color:#111; }
-.light-tl .tl-d { color:#666; }
+.light-tl { display:flex; flex-direction:column; width:100%; max-width:700px; margin-top:20px; border:1px solid rgba(255,255,255,.08); }
+.light-tl .tl-row { border-bottom:1px solid rgba(255,255,255,.07); }
+.light-tl .tl-n { color:rgba(255,255,255,.2); border-right:1px solid rgba(255,255,255,.07); }
+.light-tl .tl-t { color:rgba(255,255,255,.85); }
+.light-tl .tl-d { color:rgba(255,255,255,.45); }
 
 /* ─── STATS ROW ─── */
-.stats { display:flex; border:1px solid #e5e7eb; width:100%; max-width:760px; margin-top:28px; }
-.stat { flex:1; padding:28px 20px; text-align:center; border-right:1px solid #e5e7eb; }
+.stats { display:flex; border:1px solid rgba(255,255,255,.08); width:100%; max-width:760px; margin-top:28px; }
+.stat { flex:1; padding:28px 20px; text-align:center; border-right:1px solid rgba(255,255,255,.08); }
 .stat:last-child { border-right:none; }
-.stat-n { font-family:'Figtree',sans-serif; font-size:clamp(36px,5vw,60px); font-weight:900; color:#111; line-height:1; }
-.stat-l { font-size:11px; color:#9ca3af; margin-top:6px; text-transform:uppercase; letter-spacing:1px; line-height:1.4; }
+.stat-n { font-family:'Figtree',sans-serif; font-size:clamp(36px,5vw,60px); font-weight:900; color:#fff; line-height:1; }
+.stat-l { font-size:11px; color:rgba(255,255,255,.3); margin-top:6px; text-transform:uppercase; letter-spacing:1px; line-height:1.4; }
 
 /* ─── PULL QUOTE ─── */
 .pullquote { max-width:640px; margin-top:24px; padding:20px 24px 20px 22px; border-left:2px solid rgba(255,255,255,.2); }
@@ -219,10 +215,10 @@ em { font-style:italic; }
 }
 .link-btn-dark { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); color:rgba(255,255,255,.7); }
 .link-btn-dark:hover { background:rgba(255,255,255,.14); color:#fff; }
-.link-btn-light { background:#fff; border:1px solid #e5e7eb; color:#333; }
-.link-btn-light:hover { background:#f9f9f9; }
-.link-btn-primary { background:#7C3AED; border:1px solid #6D28D9; color:#fff; }
-.link-btn-primary:hover { background:#6D28D9; }
+.link-btn-light { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); color:rgba(255,255,255,.7); }
+.link-btn-light:hover { background:rgba(255,255,255,.14); color:#fff; }
+.link-btn-primary { background:#111; border:1px solid #333; color:#fff; }
+.link-btn-primary:hover { background:#333; }
 
 .link-row { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:20px; }
 
@@ -236,7 +232,7 @@ em { font-style:italic; }
   max-width:620px; width:100%; text-align:left; margin-top:16px;
 }
 .code-block .cm { color:rgba(255,255,255,.22); }
-.code-block .ck { color:#c4b5fd; }
+.code-block .ck { color:rgba(255,255,255,.75); }
 .code-block .cv { color:#86efac; }
 .code-block .cs { color:#fde68a; }
 
@@ -255,12 +251,12 @@ em { font-style:italic; }
   color:#333; font-size:13px; cursor:pointer;
   display:flex; align-items:center; justify-content:center; transition:all .15s;
 }
-.nav button:hover:not(:disabled) { background:#ede9fe; border-color:#c4b5fd; }
+.nav button:hover:not(:disabled) { background:#f0f0f0; border-color:#bbb; }
 .nav button:disabled { opacity:.25; cursor:default; }
 .nav .count { font-size:11px; font-weight:600; color:#9ca3af; min-width:36px; text-align:center; }
 .dots { display:flex; gap:5px; }
 .dot { width:5px; height:5px; border-radius:50%; background:#e0e0e0; cursor:pointer; transition:all .3s; }
-.dot.on { background:#7C3AED; width:14px; border-radius:3px; }
+.dot.on { background:#111; width:14px; border-radius:3px; }
 .hint { position:fixed; bottom:28px; right:32px; font-size:11px; color:#ddd; }
 </style>
 </head>
@@ -272,10 +268,7 @@ em { font-style:italic; }
      1. TITLE
 ══════════════════════════════════════════════════════════════ -->
 <div class="slide dark active" style="padding:60px 80px;">
-  <div class="aurora">
-    <div class="aurora-orb" style="width:600px;height:600px;background:#5b21b6;top:-200px;right:-100px;"></div>
-    <div class="aurora-orb" style="width:400px;height:400px;background:#1e0a3c;bottom:-100px;left:-80px;"></div>
-  </div>
+  
 
   <div class="logo">
     <svg width="38" height="38" viewBox="0 0 40 40" fill="none"><defs><linearGradient id="l1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5b21b6"/><stop offset="100%" stop-color="#1e0a3c"/></linearGradient><radialGradient id="l2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fef9c3"/><stop offset="100%" stop-color="#fbbf24"/></radialGradient><filter id="l3" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><rect width="40" height="40" rx="10" fill="url(#l1)"/><line x1="20" y1="6" x2="20" y2="14" stroke="#c4b5fd" stroke-width="1.6" stroke-linecap="round" opacity=".9"/><line x1="34" y1="20" x2="26" y2="20" stroke="#c4b5fd" stroke-width="1.6" stroke-linecap="round" opacity=".9"/><line x1="20" y1="34" x2="20" y2="26" stroke="#c4b5fd" stroke-width="1.6" stroke-linecap="round" opacity=".9"/><line x1="6" y1="20" x2="14" y2="20" stroke="#c4b5fd" stroke-width="1.6" stroke-linecap="round" opacity=".9"/><line x1="29.9" y1="10.1" x2="24.2" y2="15.8" stroke="#c4b5fd" stroke-width="1.1" stroke-linecap="round" opacity=".55"/><line x1="29.9" y1="29.9" x2="24.2" y2="24.2" stroke="#c4b5fd" stroke-width="1.1" stroke-linecap="round" opacity=".55"/><line x1="10.1" y1="29.9" x2="15.8" y2="24.2" stroke="#c4b5fd" stroke-width="1.1" stroke-linecap="round" opacity=".55"/><line x1="10.1" y1="10.1" x2="15.8" y2="15.8" stroke="#c4b5fd" stroke-width="1.1" stroke-linecap="round" opacity=".55"/><g filter="url(#l3)"><circle cx="20" cy="20" r="3.2" fill="url(#l2)"/></g><circle cx="20" cy="20" r="1.8" fill="#fef9c3"/></svg>
@@ -283,7 +276,7 @@ em { font-style:italic; }
   </div>
 
   <div class="eyebrow">Health Technology Project</div>
-  <h1 style="color:#fff; margin-bottom:22px;">Record your dream.<br/><span style="color:#a78bfa;">Track your brain.</span></h1>
+  <h1 style="color:#fff; margin-bottom:22px;">Record your dream.<br/><span style="color:rgba(255,255,255,.55);">Track your brain.</span></h1>
   <p class="lead">What if speaking your dream every morning could give you years of advance warning about Alzheimer's, Parkinson's, or depression?</p>
 
   <div class="divider"></div>
@@ -303,36 +296,48 @@ em { font-style:italic; }
 <!-- ══════════════════════════════════════════════════════════════
      2. THE PROBLEM — one number, full screen
 ══════════════════════════════════════════════════════════════ -->
-<div class="slide light" style="padding:60px 80px;">
+<div class="slide dark" style="padding:60px 80px;">
   <div class="eyebrow">The problem</div>
-  <div class="big-stat" style="color:#4C1D95; margin-bottom:12px;">55M</div>
-  <h2 style="font-size:clamp(22px,3vw,38px); color:#111;">people have dementia worldwide.</h2>
-  <p class="lead" style="margin-top:12px; max-width:560px;">Most are diagnosed only after irreversible damage has occurred. Not because the disease is undetectable, but because no one was looking early enough.</p>
+  <h2 style="font-size:clamp(26px,3.5vw,46px); color:#fff; margin-bottom:10px;">Five conditions. No routine screening.</h2>
+  <p class="lead" style="margin-top:0; max-width:580px;">All five are detectable in speech years before clinical diagnosis. None have a standard early screening tool available to the public.</p>
 
-  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:#e5e7eb; border:1px solid #e5e7eb; width:100%; max-width:700px; margin-top:32px;">
-    <div style="background:#fff; padding:20px; text-align:center;">
-      <div style="font-family:Figtree,sans-serif; font-size:32px; font-weight:900; color:#4C1D95;">15 yr</div>
-      <div style="font-size:11px; color:#9ca3af; margin-top:5px; text-transform:uppercase; letter-spacing:1px; line-height:1.4;">Alzheimer's damage begins before symptoms<br/><em style="color:#bbb;">Bateman et al., NEJM 2012</em></div>
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr 1fr; gap:1px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); width:100%; max-width:900px; margin-top:28px;">
+    <div style="background:#fff; padding:18px 14px; text-align:center;">
+      <div style="font-family:Figtree,sans-serif; font-size:11px; font-weight:800; color:rgba(255,255,255,.85); margin-bottom:8px; letter-spacing:.3px;">Alzheimer's</div>
+      <div style="font-family:Figtree,sans-serif; font-size:26px; font-weight:900; color:#fff;">15 yr</div>
+      <div style="font-size:10px; color:rgba(255,255,255,.3); margin-top:5px; line-height:1.4;">brain damage before symptoms</div>
     </div>
-    <div style="background:#fff; padding:20px; text-align:center; border-left:1px solid #e5e7eb; border-right:1px solid #e5e7eb;">
-      <div style="font-family:Figtree,sans-serif; font-size:32px; font-weight:900; color:#4C1D95;">90%</div>
-      <div style="font-size:11px; color:#9ca3af; margin-top:5px; text-transform:uppercase; letter-spacing:1px; line-height:1.4;">REM disorder predicts Parkinson's<br/><em style="color:#bbb;">Schenck et al., Sleep 2013</em></div>
+    <div style="background:#fff; padding:18px 14px; text-align:center; border-left:1px solid rgba(255,255,255,.08);">
+      <div style="font-family:Figtree,sans-serif; font-size:11px; font-weight:800; color:rgba(255,255,255,.85); margin-bottom:8px; letter-spacing:.3px;">Parkinson's</div>
+      <div style="font-family:Figtree,sans-serif; font-size:26px; font-weight:900; color:#fff;">10 yr</div>
+      <div style="font-size:10px; color:rgba(255,255,255,.3); margin-top:5px; line-height:1.4;">voice changes before motor onset</div>
     </div>
-    <div style="background:#fff; padding:20px; text-align:center;">
-      <div style="font-family:Figtree,sans-serif; font-size:32px; font-weight:900; color:#4C1D95;">0</div>
-      <div style="font-size:11px; color:#9ca3af; margin-top:5px; text-transform:uppercase; letter-spacing:1px; line-height:1.4;">Routine screenings exist for most people</div>
+    <div style="background:#fff; padding:18px 14px; text-align:center; border-left:1px solid rgba(255,255,255,.08);">
+      <div style="font-family:Figtree,sans-serif; font-size:11px; font-weight:800; color:rgba(255,255,255,.85); margin-bottom:8px; letter-spacing:.3px;">Depression</div>
+      <div style="font-family:Figtree,sans-serif; font-size:26px; font-weight:900; color:#fff;">AUC<br/>0.93</div>
+      <div style="font-size:10px; color:rgba(255,255,255,.3); margin-top:5px; line-height:1.4;">AI voice detection accuracy</div>
+    </div>
+    <div style="background:#fff; padding:18px 14px; text-align:center; border-left:1px solid rgba(255,255,255,.08);">
+      <div style="font-family:Figtree,sans-serif; font-size:11px; font-weight:800; color:rgba(255,255,255,.85); margin-bottom:8px; letter-spacing:.3px;">REM Disorder</div>
+      <div style="font-family:Figtree,sans-serif; font-size:26px; font-weight:900; color:#fff;">90%</div>
+      <div style="font-size:10px; color:rgba(255,255,255,.3); margin-top:5px; line-height:1.4;">predicts Parkinson's conversion</div>
+    </div>
+    <div style="background:#fff; padding:18px 14px; text-align:center; border-left:1px solid rgba(255,255,255,.08);">
+      <div style="font-family:Figtree,sans-serif; font-size:11px; font-weight:800; color:rgba(255,255,255,.85); margin-bottom:8px; letter-spacing:.3px;">FTD</div>
+      <div style="font-family:Figtree,sans-serif; font-size:26px; font-weight:900; color:#fff;">84.8%</div>
+      <div style="font-size:10px; color:rgba(255,255,255,.3); margin-top:5px; line-height:1.4;">accuracy from remote speech alone</div>
     </div>
   </div>
+
+  <p style="font-size:11px; color:rgba(255,255,255,.2); margin-top:14px; text-align:center;">Rusz 2021 &middot; Menne 2024 &middot; Schenck 2013 &middot; Vonk 2025 &middot; Tsanas 2012</p>
 </div>
 
 
 <!-- ══════════════════════════════════════════════════════════════
      3. THE APP — show the actual product
 ══════════════════════════════════════════════════════════════ -->
-<div class="slide dim" style="padding:60px 80px;">
-  <div class="aurora">
-    <div class="aurora-orb" style="width:500px;height:500px;background:#3b0764;top:-150px;right:-100px;"></div>
-  </div>
+<div class="slide dark" style="padding:60px 80px;">
+  
 
   <div class="eyebrow">The product</div>
   <h2 style="color:#fff; margin-bottom:32px;">Two minutes every morning.</h2>
@@ -346,25 +351,25 @@ em { font-style:italic; }
         <div style="text-align:center;">
           <!-- waveform -->
           <svg width="120" height="40" viewBox="0 0 120 40">
-            <rect x="4"  y="14" width="4" height="12" rx="2" fill="rgba(167,139,250,.6)"/>
-            <rect x="12" y="8"  width="4" height="24" rx="2" fill="rgba(167,139,250,.8)"/>
-            <rect x="20" y="18" width="4" height="8"  rx="2" fill="rgba(167,139,250,.5)"/>
-            <rect x="28" y="6"  width="4" height="28" rx="2" fill="#a78bfa"/>
-            <rect x="36" y="12" width="4" height="16" rx="2" fill="rgba(167,139,250,.7)"/>
-            <rect x="44" y="16" width="4" height="8"  rx="2" fill="rgba(167,139,250,.5)"/>
-            <rect x="52" y="4"  width="4" height="32" rx="2" fill="#c4b5fd"/>
-            <rect x="60" y="10" width="4" height="20" rx="2" fill="rgba(167,139,250,.8)"/>
-            <rect x="68" y="14" width="4" height="12" rx="2" fill="rgba(167,139,250,.6)"/>
-            <rect x="76" y="8"  width="4" height="24" rx="2" fill="#a78bfa"/>
-            <rect x="84" y="18" width="4" height="8"  rx="2" fill="rgba(167,139,250,.5)"/>
-            <rect x="92" y="12" width="4" height="16" rx="2" fill="rgba(167,139,250,.7)"/>
-            <rect x="100" y="6" width="4" height="28" rx="2" fill="#c4b5fd"/>
-            <rect x="108" y="14" width="4" height="12" rx="2" fill="rgba(167,139,250,.6)"/>
+            <rect x="4"  y="14" width="4" height="12" rx="2" fill="rgba(255,255,255,.5)"/>
+            <rect x="12" y="8"  width="4" height="24" rx="2" fill="rgba(255,255,255,.75)"/>
+            <rect x="20" y="18" width="4" height="8"  rx="2" fill="rgba(255,255,255,.4)"/>
+            <rect x="28" y="6"  width="4" height="28" rx="2" fill="rgba(255,255,255,.65)"/>
+            <rect x="36" y="12" width="4" height="16" rx="2" fill="rgba(255,255,255,.6)"/>
+            <rect x="44" y="16" width="4" height="8"  rx="2" fill="rgba(255,255,255,.4)"/>
+            <rect x="52" y="4"  width="4" height="32" rx="2" fill="rgba(255,255,255,.5)"/>
+            <rect x="60" y="10" width="4" height="20" rx="2" fill="rgba(255,255,255,.75)"/>
+            <rect x="68" y="14" width="4" height="12" rx="2" fill="rgba(255,255,255,.5)"/>
+            <rect x="76" y="8"  width="4" height="24" rx="2" fill="rgba(255,255,255,.65)"/>
+            <rect x="84" y="18" width="4" height="8"  rx="2" fill="rgba(255,255,255,.4)"/>
+            <rect x="92" y="12" width="4" height="16" rx="2" fill="rgba(255,255,255,.6)"/>
+            <rect x="100" y="6" width="4" height="28" rx="2" fill="rgba(255,255,255,.5)"/>
+            <rect x="108" y="14" width="4" height="12" rx="2" fill="rgba(255,255,255,.5)"/>
           </svg>
           <div style="font-family:Figtree,sans-serif; font-size:28px; font-weight:800; color:#fff; margin-top:8px;">1:42</div>
           <div style="font-size:11px; color:rgba(255,255,255,.3); margin-top:4px;">Recording...</div>
         </div>
-        <div style="width:52px; height:52px; border-radius:50%; background:#7c3aed; display:flex; align-items:center; justify-content:center; margin-bottom:8px;">
+        <div style="width:52px; height:52px; border-radius:50%; background:rgba(255,255,255,.15); display:flex; align-items:center; justify-content:center; margin-bottom:8px;">
           <div style="width:16px; height:16px; background:#fff; border-radius:2px;"></div>
         </div>
       </div>
@@ -386,17 +391,17 @@ em { font-style:italic; }
         <div style="display:flex; flex-direction:column; gap:5px;">
           <div style="display:flex; align-items:center; justify-content:space-between;">
             <span style="font-size:10px; color:rgba(255,255,255,.3);">Parkinson's</span>
-            <div style="flex:1; margin:0 8px; height:3px; background:rgba(255,255,255,.08); border-radius:2px; overflow:hidden;"><div style="width:18%; height:100%; background:#a78bfa; border-radius:2px;"></div></div>
+            <div style="flex:1; margin:0 8px; height:3px; background:rgba(255,255,255,.08); border-radius:2px; overflow:hidden;"><div style="width:18%; height:100%; background:rgba(255,255,255,.7); border-radius:2px;"></div></div>
             <span style="font-size:10px; color:rgba(255,255,255,.3);">0.18</span>
           </div>
           <div style="display:flex; align-items:center; justify-content:space-between;">
             <span style="font-size:10px; color:rgba(255,255,255,.3);">Alzheimer's</span>
-            <div style="flex:1; margin:0 8px; height:3px; background:rgba(255,255,255,.08); border-radius:2px; overflow:hidden;"><div style="width:12%; height:100%; background:#a78bfa; border-radius:2px;"></div></div>
+            <div style="flex:1; margin:0 8px; height:3px; background:rgba(255,255,255,.08); border-radius:2px; overflow:hidden;"><div style="width:12%; height:100%; background:rgba(255,255,255,.7); border-radius:2px;"></div></div>
             <span style="font-size:10px; color:rgba(255,255,255,.3);">0.12</span>
           </div>
           <div style="display:flex; align-items:center; justify-content:space-between;">
             <span style="font-size:10px; color:rgba(255,255,255,.3);">Depression</span>
-            <div style="flex:1; margin:0 8px; height:3px; background:rgba(255,255,255,.08); border-radius:2px; overflow:hidden;"><div style="width:24%; height:100%; background:#c4b5fd; border-radius:2px;"></div></div>
+            <div style="flex:1; margin:0 8px; height:3px; background:rgba(255,255,255,.08); border-radius:2px; overflow:hidden;"><div style="width:24%; height:100%; background:rgba(255,255,255,.5); border-radius:2px;"></div></div>
             <span style="font-size:10px; color:rgba(255,255,255,.3);">0.24</span>
           </div>
         </div>
@@ -411,14 +416,14 @@ em { font-style:italic; }
         <div style="display:inline-block; background:rgba(52,211,153,.15); border:1px solid rgba(52,211,153,.2); border-radius:100px; padding:2px 8px; font-size:9px; font-weight:600; color:#34d399; margin-bottom:12px;">Stable</div>
         <!-- trend chart SVG -->
         <svg width="100%" height="90" viewBox="0 0 160 90" preserveAspectRatio="none">
-          <defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7c3aed" stop-opacity=".3"/><stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/></linearGradient></defs>
-          <path d="M0,60 C20,55 30,65 50,58 C70,50 80,62 100,54 C120,46 130,58 160,50" stroke="#a78bfa" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffffff" stop-opacity=".15"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/></linearGradient></defs>
+          <path d="M0,60 C20,55 30,65 50,58 C70,50 80,62 100,54 C120,46 130,58 160,50" stroke="rgba(255,255,255,.6)" stroke-width="2" fill="none" stroke-linecap="round"/>
           <path d="M0,60 C20,55 30,65 50,58 C70,50 80,62 100,54 C120,46 130,58 160,50 L160,90 L0,90 Z" fill="url(#cg)"/>
           <!-- data points -->
-          <circle cx="0"   cy="60" r="2.5" fill="#c4b5fd"/>
-          <circle cx="50"  cy="58" r="2.5" fill="#c4b5fd"/>
-          <circle cx="100" cy="54" r="2.5" fill="#c4b5fd"/>
-          <circle cx="160" cy="50" r="2.5" fill="#c4b5fd"/>
+          <circle cx="0"   cy="60" r="2.5" fill="rgba(255,255,255,.5)"/>
+          <circle cx="50"  cy="58" r="2.5" fill="rgba(255,255,255,.5)"/>
+          <circle cx="100" cy="54" r="2.5" fill="rgba(255,255,255,.5)"/>
+          <circle cx="160" cy="50" r="2.5" fill="rgba(255,255,255,.5)"/>
         </svg>
         <div style="font-size:10px; color:rgba(255,255,255,.25); margin-top:8px; line-height:1.5;">No significant trend detected over 90 days. Mann-Kendall p = 0.43</div>
       </div>
@@ -437,10 +442,7 @@ em { font-style:italic; }
      4. DREAM VIDEO
 ══════════════════════════════════════════════════════════════ -->
 <div class="slide dark" style="padding:60px 80px;">
-  <div class="aurora">
-    <div class="aurora-orb" style="width:500px;height:500px;background:#1e0a3c;bottom:-150px;left:-100px;"></div>
-    <div class="aurora-orb" style="width:300px;height:300px;background:#4c1d95;top:-80px;right:-60px;"></div>
-  </div>
+  
 
   <div class="eyebrow">A unique feature</div>
   <h2 style="color:#fff; margin-bottom:16px;">Every dream becomes<br/>a short film.</h2>
@@ -473,7 +475,7 @@ em { font-style:italic; }
 <!-- ══════════════════════════════════════════════════════════════
      5. THE SCIENCE — how research became code
 ══════════════════════════════════════════════════════════════ -->
-<div class="slide light" style="padding:60px 88px;">
+<div class="slide dark" style="padding:60px 88px;">
   <div class="eyebrow">From research to code</div>
   <h3 style="margin-bottom:4px;">Every threshold comes from a published paper.</h3>
   <p class="lead" style="font-size:13px; margin-bottom:0;">The scoring logic in the app has inline citations for each decision.</p>
@@ -525,7 +527,7 @@ em { font-style:italic; }
 <!-- ══════════════════════════════════════════════════════════════
      6. INFRASTRUCTURE
 ══════════════════════════════════════════════════════════════ -->
-<div class="slide light" style="padding:56px 80px;">
+<div class="slide dark" style="padding:56px 80px;">
   <div class="eyebrow">Built with</div>
   <h3>A production-grade application on real infrastructure.</h3>
 
@@ -567,13 +569,11 @@ em { font-style:italic; }
 <!-- ══════════════════════════════════════════════════════════════
      7. BUILT WITH CLAUDE
 ══════════════════════════════════════════════════════════════ -->
-<div class="slide dim" style="padding:60px 80px;">
-  <div class="aurora">
-    <div class="aurora-orb" style="width:400px;height:400px;background:#3b0764;top:-100px;right:-80px;"></div>
-  </div>
+<div class="slide dark" style="padding:60px 80px;">
+  
 
   <div class="eyebrow">Development process</div>
-  <h2 style="color:#fff; margin-bottom:16px;">Built entirely through<br/><span style="color:#a78bfa;">conversation with Claude AI.</span></h2>
+  <h2 style="color:#fff; margin-bottom:16px;">Built entirely through<br/><span style="color:rgba(255,255,255,.55);">conversation with Claude AI.</span></h2>
 
   <div style="display:flex; gap:32px; max-width:880px; width:100%; margin-top:8px;">
     <div style="flex:1;">
@@ -605,7 +605,7 @@ em { font-style:italic; }
 <!-- ══════════════════════════════════════════════════════════════
      8. WHAT WAS BUILT
 ══════════════════════════════════════════════════════════════ -->
-<div class="slide light" style="padding:60px 80px;">
+<div class="slide dark" style="padding:60px 80px;">
   <div class="eyebrow">What was built</div>
   <h2>A complete health platform.<br/>Live today.</h2>
 
@@ -616,15 +616,15 @@ em { font-style:italic; }
     <div class="stat"><div class="stat-n">6</div><div class="stat-l">Conditions<br/>monitored</div></div>
   </div>
 
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:#e5e7eb; border:1px solid #e5e7eb; width:100%; max-width:760px; margin-top:20px;">
-    <div style="background:#fff; padding:14px 18px; font-size:12.5px; color:#555;">Voice recording and secure upload</div>
-    <div style="background:#fff; padding:14px 18px; font-size:12.5px; color:#555; border-left:1px solid #e5e7eb;">AI dream video generation (Runway)</div>
-    <div style="background:#fff; padding:14px 18px; font-size:12.5px; color:#555; border-top:1px solid #e5e7eb;">GP report PDF download</div>
-    <div style="background:#fff; padding:14px 18px; font-size:12.5px; color:#555; border-left:1px solid #e5e7eb; border-top:1px solid #e5e7eb;">Family member linked accounts</div>
-    <div style="background:#fff; padding:14px 18px; font-size:12.5px; color:#555; border-top:1px solid #e5e7eb;">30 / 90 / 180-day trend charts</div>
-    <div style="background:#fff; padding:14px 18px; font-size:12.5px; color:#555; border-left:1px solid #e5e7eb; border-top:1px solid #e5e7eb;">Automatic health alert system</div>
-    <div style="background:#fff; padding:14px 18px; font-size:12.5px; color:#555; border-top:1px solid #e5e7eb;">Admin panel with analytics</div>
-    <div style="background:#fff; padding:14px 18px; font-size:12.5px; color:#555; border-left:1px solid #e5e7eb; border-top:1px solid #e5e7eb;">Research bibliography page</div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); width:100%; max-width:760px; margin-top:20px;">
+    <div style="background:rgba(255,255,255,.03); padding:14px 18px; font-size:12.5px; color:rgba(255,255,255,.5);">Voice recording and secure upload</div>
+    <div style="background:rgba(255,255,255,.03); padding:14px 18px; font-size:12.5px; color:rgba(255,255,255,.5); border-left:1px solid rgba(255,255,255,.08);">AI dream video generation (Runway)</div>
+    <div style="background:rgba(255,255,255,.03); padding:14px 18px; font-size:12.5px; color:rgba(255,255,255,.5); border-top:1px solid rgba(255,255,255,.07);">GP report PDF download</div>
+    <div style="background:rgba(255,255,255,.03); padding:14px 18px; font-size:12.5px; color:rgba(255,255,255,.5); border-left:1px solid rgba(255,255,255,.08); border-top:1px solid rgba(255,255,255,.07);">Family member linked accounts</div>
+    <div style="background:rgba(255,255,255,.03); padding:14px 18px; font-size:12.5px; color:rgba(255,255,255,.5); border-top:1px solid rgba(255,255,255,.07);">30 / 90 / 180-day trend charts</div>
+    <div style="background:rgba(255,255,255,.03); padding:14px 18px; font-size:12.5px; color:rgba(255,255,255,.5); border-left:1px solid rgba(255,255,255,.08); border-top:1px solid rgba(255,255,255,.07);">Automatic health alert system</div>
+    <div style="background:rgba(255,255,255,.03); padding:14px 18px; font-size:12.5px; color:rgba(255,255,255,.5); border-top:1px solid rgba(255,255,255,.07);">Admin panel with analytics</div>
+    <div style="background:rgba(255,255,255,.03); padding:14px 18px; font-size:12.5px; color:rgba(255,255,255,.5); border-left:1px solid rgba(255,255,255,.08); border-top:1px solid rgba(255,255,255,.07);">Research bibliography page</div>
   </div>
 </div>
 
@@ -633,10 +633,7 @@ em { font-style:italic; }
      9. FINAL
 ══════════════════════════════════════════════════════════════ -->
 <div class="slide dark" style="padding:60px 80px;">
-  <div class="aurora">
-    <div class="aurora-orb" style="width:600px;height:600px;background:#5b21b6;top:-200px;right:-120px;"></div>
-    <div class="aurora-orb" style="width:350px;height:350px;background:#1e0a3c;bottom:-80px;left:-60px;"></div>
-  </div>
+  
 
   <div class="logo" style="margin-bottom:20px;">
     <svg width="36" height="36" viewBox="0 0 40 40" fill="none"><defs><linearGradient id="fl1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5b21b6"/><stop offset="100%" stop-color="#1e0a3c"/></linearGradient><radialGradient id="fl2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fef9c3"/><stop offset="100%" stop-color="#fbbf24"/></radialGradient><filter id="fl3" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><rect width="40" height="40" rx="10" fill="url(#fl1)"/><line x1="20" y1="6" x2="20" y2="14" stroke="#c4b5fd" stroke-width="1.6" stroke-linecap="round" opacity=".9"/><line x1="34" y1="20" x2="26" y2="20" stroke="#c4b5fd" stroke-width="1.6" stroke-linecap="round" opacity=".9"/><line x1="20" y1="34" x2="20" y2="26" stroke="#c4b5fd" stroke-width="1.6" stroke-linecap="round" opacity=".9"/><line x1="6" y1="20" x2="14" y2="20" stroke="#c4b5fd" stroke-width="1.6" stroke-linecap="round" opacity=".9"/><line x1="29.9" y1="10.1" x2="24.2" y2="15.8" stroke="#c4b5fd" stroke-width="1.1" stroke-linecap="round" opacity=".55"/><line x1="29.9" y1="29.9" x2="24.2" y2="24.2" stroke="#c4b5fd" stroke-width="1.1" stroke-linecap="round" opacity=".55"/><line x1="10.1" y1="29.9" x2="15.8" y2="24.2" stroke="#c4b5fd" stroke-width="1.1" stroke-linecap="round" opacity=".55"/><line x1="10.1" y1="10.1" x2="15.8" y2="15.8" stroke="#c4b5fd" stroke-width="1.1" stroke-linecap="round" opacity=".55"/><g filter="url(#fl3)"><circle cx="20" cy="20" r="3.2" fill="url(#fl2)"/></g><circle cx="20" cy="20" r="1.8" fill="#fef9c3"/></svg>
@@ -644,7 +641,7 @@ em { font-style:italic; }
   </div>
 
   <div class="eyebrow">The goal</div>
-  <h2 style="color:#fff; margin-bottom:16px;">Make early detection<br/><span style="color:#a78bfa;">effortless and free.</span></h2>
+  <h2 style="color:#fff; margin-bottom:16px;">Make early detection<br/><span style="color:rgba(255,255,255,.55);">effortless and free.</span></h2>
 
   <div class="pullquote">
     <p>"A 450-participant longitudinal study established that speech recorded remotely on a smartphone can reliably track cognitive change over time, with no clinic visit required."</p>
@@ -657,7 +654,7 @@ em { font-style:italic; }
     <a href="https://dreamtrack.health/signup" target="_blank" class="link-btn link-btn-dark">Try the app</a>
   </div>
 
-  <div style="margin-top:32px; padding-top:20px; border-top:1px solid rgba(255,255,255,.08); text-align:center; width:100%; max-width:360px;">
+  <div style="margin-top:32px; padding-top:20px; border-top:1px solid rgba(255,255,255,.1); text-align:center; width:100%; max-width:360px;">
     <div style="font-size:10px; color:rgba(255,255,255,.25); letter-spacing:2px; text-transform:uppercase; margin-bottom:6px;">Built by</div>
     <div style="font-family:Figtree,sans-serif; font-size:15px; font-weight:700; color:#fff;">Ela Unlu</div>
     <div style="font-size:12px; color:rgba(255,255,255,.3); margin-top:3px;">elaunlu99@gmail.com</div>
