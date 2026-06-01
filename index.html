@@ -748,6 +748,84 @@ em { font-style:italic; }
 
 
 <!-- ══════════════════════════════════════════════════════════════
+     GENETIC RISK MODIFIERS
+══════════════════════════════════════════════════════════════ -->
+<div class="slide dark" style="padding:50px 80px; display:flex; flex-direction:column; justify-content:center;">
+  <div class="eyebrow">Personalisation</div>
+  <h2 style="color:#fff; font-size:clamp(24px,3vw,42px); margin-bottom:8px;">Your DNA changes the threshold.</h2>
+  <p class="lead" style="margin-top:0; max-width:560px; margin-bottom:28px;">The same voice score means something different depending on your genetics. If you carry a high-risk variant, DreamTrack lowers the alert threshold so weaker signals still get flagged.</p>
+
+  <div style="display:flex; gap:28px; max-width:900px; width:100%; align-items:flex-start;">
+
+    <!-- Mutation table -->
+    <div style="flex:1; display:flex; flex-direction:column; gap:1px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08);">
+      <!-- header -->
+      <div style="display:grid; grid-template-columns:110px 1fr 120px; background:rgba(255,255,255,.07); padding:8px 14px;">
+        <div style="font-size:9px; font-weight:700; color:rgba(255,255,255,.4); letter-spacing:.8px; text-transform:uppercase;">Gene</div>
+        <div style="font-size:9px; font-weight:700; color:rgba(255,255,255,.4); letter-spacing:.8px; text-transform:uppercase;">Condition affected</div>
+        <div style="font-size:9px; font-weight:700; color:rgba(255,255,255,.4); letter-spacing:.8px; text-transform:uppercase; text-align:right;">Threshold</div>
+      </div>
+      <!-- rows -->
+      <div style="display:grid; grid-template-columns:110px 1fr 120px; background:rgba(255,255,255,.04); padding:8px 14px; border-top:1px solid rgba(255,255,255,.05);">
+        <div style="font-size:11px; font-weight:700; color:#fff;">APOE e4/e4</div>
+        <div style="font-size:11px; color:rgba(255,255,255,.5);">Alzheimer (distinct genetic form)</div>
+        <div style="font-size:11px; color:#fff; text-align:right; font-weight:600;">-42%</div>
+      </div>
+      <div style="display:grid; grid-template-columns:110px 1fr 120px; background:rgba(255,255,255,.025); padding:8px 14px; border-top:1px solid rgba(255,255,255,.05);">
+        <div style="font-size:11px; font-weight:700; color:#fff;">APOE e4</div>
+        <div style="font-size:11px; color:rgba(255,255,255,.5);">Alzheimer (3-5x elevated risk)</div>
+        <div style="font-size:11px; color:#fff; text-align:right; font-weight:600;">-22%</div>
+      </div>
+      <div style="display:grid; grid-template-columns:110px 1fr 120px; background:rgba(255,255,255,.04); padding:8px 14px; border-top:1px solid rgba(255,255,255,.05);">
+        <div style="font-size:11px; font-weight:700; color:#fff;">PSEN1/PSEN2</div>
+        <div style="font-size:11px; color:rgba(255,255,255,.5);">Alzheimer (near-complete penetrance)</div>
+        <div style="font-size:11px; color:#fff; text-align:right; font-weight:600;">-37%</div>
+      </div>
+      <div style="display:grid; grid-template-columns:110px 1fr 120px; background:rgba(255,255,255,.025); padding:8px 14px; border-top:1px solid rgba(255,255,255,.05);">
+        <div style="font-size:11px; font-weight:700; color:#fff;">LRRK2 G2019S</div>
+        <div style="font-size:11px; color:rgba(255,255,255,.5);">Parkinson motor + language weight x1.4</div>
+        <div style="font-size:11px; color:#fff; text-align:right; font-weight:600;">-17%</div>
+      </div>
+      <div style="display:grid; grid-template-columns:110px 1fr 120px; background:rgba(255,255,255,.04); padding:8px 14px; border-top:1px solid rgba(255,255,255,.05);">
+        <div style="font-size:11px; font-weight:700; color:#fff;">GBA (severe)</div>
+        <div style="font-size:11px; color:rgba(255,255,255,.5);">Parkinson + cognitive decline</div>
+        <div style="font-size:11px; color:#fff; text-align:right; font-weight:600;">-27 / -30%</div>
+      </div>
+      <div style="display:grid; grid-template-columns:110px 1fr 120px; background:rgba(255,255,255,.025); padding:8px 14px; border-top:1px solid rgba(255,255,255,.05);">
+        <div style="font-size:11px; font-weight:700; color:#fff;">MAPT</div>
+        <div style="font-size:11px; color:rgba(255,255,255,.5);">FTD — any naming change flagged immediately</div>
+        <div style="font-size:11px; color:#fff; text-align:right; font-weight:600;">-32%</div>
+      </div>
+      <div style="display:grid; grid-template-columns:110px 1fr 120px; background:rgba(255,255,255,.04); padding:8px 14px; border-top:1px solid rgba(255,255,255,.05);">
+        <div style="font-size:11px; font-weight:700; color:#fff;">GRN</div>
+        <div style="font-size:11px; color:rgba(255,255,255,.5);">FTD language score</div>
+        <div style="font-size:11px; color:#fff; text-align:right; font-weight:600;">-22%</div>
+      </div>
+      <div style="display:grid; grid-template-columns:110px 1fr 120px; background:rgba(255,255,255,.025); padding:8px 14px; border-top:1px solid rgba(255,255,255,.05);">
+        <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,.45);">BAP1</div>
+        <div style="font-size:11px; color:rgba(255,255,255,.35);">Meningioma risk flag — research phase</div>
+        <div style="font-size:9px; color:rgba(255,255,255,.3); text-align:right; font-weight:600; padding-top:1px;">in progress</div>
+      </div>
+    </div>
+
+    <!-- right side: how it works -->
+    <div style="width:220px; flex-shrink:0; display:flex; flex-direction:column; gap:12px;">
+      <div style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); padding:16px;">
+        <div style="font-size:10px; font-weight:700; color:rgba(255,255,255,.4); letter-spacing:.8px; text-transform:uppercase; margin-bottom:6px;">How it works</div>
+        <div style="font-size:11px; color:rgba(255,255,255,.6); line-height:1.6;">User enters their mutations and family history in settings. Every trend alert and GP report then uses genotype-adjusted thresholds automatically.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); padding:16px;">
+        <div style="font-size:10px; font-weight:700; color:rgba(255,255,255,.4); letter-spacing:.8px; text-transform:uppercase; margin-bottom:6px;">Example</div>
+        <div style="font-size:11px; color:rgba(255,255,255,.6); line-height:1.6;">A score of <span style="color:#fff; font-weight:600;">0.28</span> is "Normal" for most people. For an APOE e4/e4 carrier, the same score reads <span style="color:#fff; font-weight:600;">"Mildly elevated"</span> because the alert threshold has been lowered to 0.17.</div>
+      </div>
+      <p style="font-size:10px; color:rgba(255,255,255,.2); line-height:1.6;">Based on: Fortea 2024, Adams 2018, Iwaki 2024, Bouzigues 2022, GBA1-PD Browser 2023.</p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════
      8. WHAT WAS BUILT
 ══════════════════════════════════════════════════════════════ -->
 <div class="slide dark" style="padding:60px 80px;">
