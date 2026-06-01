@@ -608,54 +608,139 @@ em { font-style:italic; }
 <!-- ══════════════════════════════════════════════════════════════
      GP REPORT
 ══════════════════════════════════════════════════════════════ -->
-<div class="slide dark" style="padding:60px 80px;">
+<div class="slide dark" style="padding:50px 80px; display:flex; flex-direction:column; align-items:flex-start; justify-content:center;">
   <div class="eyebrow">A feature for doctors</div>
-  <h2 style="color:#fff; margin-bottom:14px;">One button. A full medical report.</h2>
-  <p class="lead" style="max-width:560px;">After recording dreams for a few weeks, users can download a PDF report and share it with their doctor. It reads like a real clinical document.</p>
+  <h2 style="color:#fff; margin-bottom:8px;">One button. A full clinical report.</h2>
+  <p class="lead" style="margin-top:0; max-width:600px; margin-bottom:28px;">After a few weeks of recordings, users download a PDF and hand it to their GP. It looks like a document that came out of a hospital.</p>
 
-  <div style="display:flex; gap:24px; max-width:860px; width:100%; margin-top:28px; align-items:flex-start;">
+  <div style="display:flex; gap:32px; max-width:900px; width:100%; align-items:flex-start;">
 
-    <!-- PDF mockup -->
-    <div style="width:200px; flex-shrink:0; background:#f8f8f8; border-radius:12px; padding:20px 16px; box-shadow:0 20px 60px rgba(0,0,0,.5);">
-      <div style="font-size:7px; font-weight:800; color:#1e2d5a; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:8px;">DreamTrack Health</div>
-      <div style="font-size:9px; font-weight:700; color:#1e2d5a; margin-bottom:2px;">Neurological Biomarker Report</div>
-      <div style="font-size:7px; color:#9ca3af; margin-bottom:10px;">90-day analysis period</div>
-      <div style="height:1px; background:#e5e7eb; margin-bottom:8px;"></div>
-      <div style="font-size:7px; font-weight:700; color:#374151; margin-bottom:5px; text-transform:uppercase; letter-spacing:1px;">Voice Biomarkers</div>
-      <div style="display:flex; justify-content:space-between; margin-bottom:3px;"><span style="font-size:6.5px; color:#6b7280;">Speech rate</span><span style="font-size:6.5px; color:#374151; font-weight:600;">3.2 syl/sec</span></div>
-      <div style="display:flex; justify-content:space-between; margin-bottom:3px;"><span style="font-size:6.5px; color:#6b7280;">Pause ratio</span><span style="font-size:6.5px; color:#374151; font-weight:600;">0.28</span></div>
-      <div style="display:flex; justify-content:space-between; margin-bottom:3px;"><span style="font-size:6.5px; color:#6b7280;">Parkinson index</span><span style="font-size:6.5px; color:#059669; font-weight:600;">Low</span></div>
-      <div style="display:flex; justify-content:space-between; margin-bottom:8px;"><span style="font-size:6.5px; color:#6b7280;">Depression index</span><span style="font-size:6.5px; color:#059669; font-weight:600;">Low</span></div>
-      <div style="height:1px; background:#e5e7eb; margin-bottom:8px;"></div>
-      <div style="font-size:7px; font-weight:700; color:#374151; margin-bottom:5px; text-transform:uppercase; letter-spacing:1px;">Dream Analysis</div>
-      <div style="display:flex; justify-content:space-between; margin-bottom:3px;"><span style="font-size:6.5px; color:#6b7280;">Coherence</span><span style="font-size:6.5px; color:#374151; font-weight:600;">0.74</span></div>
-      <div style="display:flex; justify-content:space-between; margin-bottom:3px;"><span style="font-size:6.5px; color:#6b7280;">Emotional tone</span><span style="font-size:6.5px; color:#374151; font-weight:600;">Neutral</span></div>
-      <div style="display:flex; justify-content:space-between; margin-bottom:8px;"><span style="font-size:6.5px; color:#6b7280;">RBD score</span><span style="font-size:6.5px; color:#059669; font-weight:600;">Low</span></div>
-      <div style="height:1px; background:#e5e7eb; margin-bottom:8px;"></div>
-      <div style="font-size:6px; color:#9ca3af; line-height:1.5;">Not a clinical diagnosis. Share with a qualified healthcare professional.</div>
-    </div>
+    <!-- Realistic PDF mockup -->
+    <div style="width:230px; flex-shrink:0; background:#ffffff; border-radius:4px; overflow:hidden; box-shadow:0 24px 80px rgba(0,0,0,.7); font-family:Helvetica,Arial,sans-serif;">
 
-    <!-- what it contains -->
-    <div style="flex:1;">
-      <div style="display:flex; flex-direction:column; gap:1px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.06);">
-        <div style="background:rgba(255,255,255,.04); padding:14px 18px;">
-          <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,.8); margin-bottom:3px;">Voice biomarker averages</div>
-          <div style="font-size:12px; color:rgba(255,255,255,.4); line-height:1.5;">Speech rate, pause ratio, pitch variation, jitter, shimmer, HNR averaged across all recordings in the selected period.</div>
-        </div>
-        <div style="background:rgba(255,255,255,.04); padding:14px 18px; border-top:1px solid rgba(255,255,255,.06);">
-          <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,.8); margin-bottom:3px;">Dream narrative analysis</div>
-          <div style="font-size:12px; color:rgba(255,255,255,.4); line-height:1.5;">Coherence scores, emotional tone, RBD dream score, FTD language score, recall completeness.</div>
-        </div>
-        <div style="background:rgba(255,255,255,.04); padding:14px 18px; border-top:1px solid rgba(255,255,255,.06);">
-          <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,.8); margin-bottom:3px;">Trend direction</div>
-          <div style="font-size:12px; color:rgba(255,255,255,.4); line-height:1.5;">Each condition marked as improving, stable, or worsening with statistical confidence level.</div>
-        </div>
-        <div style="background:rgba(255,255,255,.04); padding:14px 18px; border-top:1px solid rgba(255,255,255,.06);">
-          <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,.8); margin-bottom:3px;">Plain-language summary</div>
-          <div style="font-size:12px; color:rgba(255,255,255,.4); line-height:1.5;">A paragraph written for a GP to read without any background in AI or neuroscience.</div>
+      <!-- letterhead -->
+      <div style="background:#1e2d5a; padding:10px 12px 8px;">
+        <div style="font-size:6.5px; font-weight:700; color:rgba(255,255,255,.5); letter-spacing:1.5px; text-transform:uppercase;">DreamTrack</div>
+        <div style="font-size:9.5px; font-weight:700; color:#fff; margin-top:2px; line-height:1.3;">Cognitive Health<br/>Monitoring Report</div>
+      </div>
+
+      <!-- patient meta -->
+      <div style="background:#f5f6f8; padding:7px 10px; border-bottom:1px solid #e5e7eb;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:3px 8px;">
+          <div style="font-size:6px; color:#9ca3af;">Patient</div><div style="font-size:6px; color:#374151; font-weight:600;">Jane Smith</div>
+          <div style="font-size:6px; color:#9ca3af;">Age</div><div style="font-size:6px; color:#374151; font-weight:600;">58</div>
+          <div style="font-size:6px; color:#9ca3af;">Period</div><div style="font-size:6px; color:#374151; font-weight:600;">Past 90 days</div>
+          <div style="font-size:6px; color:#9ca3af;">Sessions</div><div style="font-size:6px; color:#374151; font-weight:600;">41 recordings</div>
         </div>
       </div>
-      <p style="font-size:11px; color:rgba(255,255,255,.2); margin-top:10px;">Generated with ReportLab on A4. Downloaded as PDF in one click.</p>
+
+      <!-- voice biomarkers table -->
+      <div style="padding:8px 10px 0;">
+        <div style="font-size:6.5px; font-weight:700; color:#1e2d5a; text-transform:uppercase; letter-spacing:.8px; margin-bottom:4px;">Voice Biomarker Analysis</div>
+        <table style="width:100%; border-collapse:collapse; font-size:6px;">
+          <tr style="background:#1e2d5a;">
+            <td style="color:#fff; font-weight:700; padding:3px 5px;">Measure</td>
+            <td style="color:#fff; font-weight:700; padding:3px 5px; text-align:right;">Value</td>
+            <td style="color:#fff; font-weight:700; padding:3px 5px; text-align:right;">Status</td>
+          </tr>
+          <tr style="background:#fff;">
+            <td style="color:#374151; padding:2.5px 5px;">Speech rate</td>
+            <td style="color:#374151; padding:2.5px 5px; text-align:right;">4.1 syl/sec</td>
+            <td style="color:#059669; padding:2.5px 5px; text-align:right; font-weight:600;">Normal</td>
+          </tr>
+          <tr style="background:#f5f6f8;">
+            <td style="color:#374151; padding:2.5px 5px;">Pause ratio</td>
+            <td style="color:#374151; padding:2.5px 5px; text-align:right;">0.28</td>
+            <td style="color:#059669; padding:2.5px 5px; text-align:right; font-weight:600;">Normal</td>
+          </tr>
+          <tr style="background:#fff;">
+            <td style="color:#374151; padding:2.5px 5px;">Pitch variation (F0)</td>
+            <td style="color:#374151; padding:2.5px 5px; text-align:right;">24.3 Hz</td>
+            <td style="color:#059669; padding:2.5px 5px; text-align:right; font-weight:600;">Normal</td>
+          </tr>
+          <tr style="background:#f5f6f8;">
+            <td style="color:#374151; padding:2.5px 5px;">Parkinson index</td>
+            <td style="color:#374151; padding:2.5px 5px; text-align:right;">0.18</td>
+            <td style="color:#059669; padding:2.5px 5px; text-align:right; font-weight:600;">Low risk</td>
+          </tr>
+          <tr style="background:#fff;">
+            <td style="color:#374151; padding:2.5px 5px;">Alzheimer voice</td>
+            <td style="color:#374151; padding:2.5px 5px; text-align:right;">0.22</td>
+            <td style="color:#059669; padding:2.5px 5px; text-align:right; font-weight:600;">Low risk</td>
+          </tr>
+          <tr style="background:#f5f6f8;">
+            <td style="color:#374151; padding:2.5px 5px;">Depression index</td>
+            <td style="color:#374151; padding:2.5px 5px; text-align:right;">0.19</td>
+            <td style="color:#059669; padding:2.5px 5px; text-align:right; font-weight:600;">Low risk</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- dream analysis table -->
+      <div style="padding:8px 10px 0;">
+        <div style="font-size:6.5px; font-weight:700; color:#1e2d5a; text-transform:uppercase; letter-spacing:.8px; margin-bottom:4px;">Dream Narrative Analysis</div>
+        <table style="width:100%; border-collapse:collapse; font-size:6px;">
+          <tr style="background:#1e2d5a;">
+            <td style="color:#fff; font-weight:700; padding:3px 5px;">Measure</td>
+            <td style="color:#fff; font-weight:700; padding:3px 5px; text-align:right;">Value</td>
+            <td style="color:#fff; font-weight:700; padding:3px 5px; text-align:right;">Status</td>
+          </tr>
+          <tr style="background:#fff;">
+            <td style="color:#374151; padding:2.5px 5px;">Narrative coherence</td>
+            <td style="color:#374151; padding:2.5px 5px; text-align:right;">0.74 / 1.00</td>
+            <td style="color:#059669; padding:2.5px 5px; text-align:right; font-weight:600;">Good</td>
+          </tr>
+          <tr style="background:#f5f6f8;">
+            <td style="color:#374151; padding:2.5px 5px;">Emotional tone</td>
+            <td style="color:#374151; padding:2.5px 5px; text-align:right;">+0.08</td>
+            <td style="color:#374151; padding:2.5px 5px; text-align:right;">Neutral</td>
+          </tr>
+          <tr style="background:#fff;">
+            <td style="color:#374151; padding:2.5px 5px;">RBD dream index</td>
+            <td style="color:#374151; padding:2.5px 5px; text-align:right;">0.11</td>
+            <td style="color:#059669; padding:2.5px 5px; text-align:right; font-weight:600;">Low risk</td>
+          </tr>
+          <tr style="background:#f5f6f8;">
+            <td style="color:#374151; padding:2.5px 5px;">FTD language index</td>
+            <td style="color:#374151; padding:2.5px 5px; text-align:right;">0.14</td>
+            <td style="color:#059669; padding:2.5px 5px; text-align:right; font-weight:600;">Low risk</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- disclaimer -->
+      <div style="padding:8px 10px;">
+        <div style="font-size:5.5px; color:#9ca3af; line-height:1.6; border-top:1px solid #e5e7eb; padding-top:6px;">DISCLAIMER: This report is produced by DreamTrack, a wellness monitoring platform, and does not constitute a medical diagnosis. It should not replace clinical assessment or specialist review.</div>
+      </div>
+    </div>
+
+    <!-- right side: what's inside -->
+    <div style="flex:1; display:flex; flex-direction:column; gap:10px;">
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+        <div style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); padding:16px 18px;">
+          <div style="font-size:10px; font-weight:700; color:rgba(255,255,255,.5); letter-spacing:.8px; text-transform:uppercase; margin-bottom:6px;">Voice</div>
+          <div style="font-size:12px; color:#fff; font-weight:600; margin-bottom:4px;">Acoustic biomarkers</div>
+          <div style="font-size:11px; color:rgba(255,255,255,.4); line-height:1.6;">Speech rate, pause ratio, pitch variation, jitter, shimmer, HNR. Averaged across all sessions.</div>
+        </div>
+        <div style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); padding:16px 18px;">
+          <div style="font-size:10px; font-weight:700; color:rgba(255,255,255,.5); letter-spacing:.8px; text-transform:uppercase; margin-bottom:6px;">Dream</div>
+          <div style="font-size:12px; color:#fff; font-weight:600; margin-bottom:4px;">Narrative analysis</div>
+          <div style="font-size:11px; color:rgba(255,255,255,.4); line-height:1.6;">Coherence, emotional tone, RBD dream content, FTD language index, recall completeness.</div>
+        </div>
+        <div style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); padding:16px 18px;">
+          <div style="font-size:10px; font-weight:700; color:rgba(255,255,255,.5); letter-spacing:.8px; text-transform:uppercase; margin-bottom:6px;">Trends</div>
+          <div style="font-size:12px; color:#fff; font-weight:600; margin-bottom:4px;">Risk trajectories</div>
+          <div style="font-size:11px; color:rgba(255,255,255,.4); line-height:1.6;">Each condition scored as improving, stable, or worsening using Mann-Kendall statistics.</div>
+        </div>
+        <div style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); padding:16px 18px;">
+          <div style="font-size:10px; font-weight:700; color:rgba(255,255,255,.5); letter-spacing:.8px; text-transform:uppercase; margin-bottom:6px;">GP Summary</div>
+          <div style="font-size:12px; color:#fff; font-weight:600; margin-bottom:4px;">Plain language</div>
+          <div style="font-size:11px; color:rgba(255,255,255,.4); line-height:1.6;">Written for a doctor with no background in AI. Peer-reviewed references included.</div>
+        </div>
+      </div>
+
+      <p style="font-size:11px; color:rgba(255,255,255,.2); margin:0;">Generated with ReportLab on A4. One click to download.</p>
     </div>
 
   </div>
