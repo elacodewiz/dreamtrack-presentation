@@ -298,22 +298,22 @@ strong { font-weight: 600; color: var(--black); }
 
   <div class="two-col">
     <div>
-      <div class="col-label">What the research shows</div>
+      <div class="col-label">What recent research shows</div>
       <div class="list-item">
         <div class="list-mark"></div>
-        <div class="list-text">Alzheimer's brain damage begins <strong>15 to 20 years</strong> before any memory symptoms appear. <em>Bateman et al., New England Journal of Medicine, 2012</em></div>
+        <div class="list-text">Monopitch is the single most specific prodromal Parkinson's voice marker, detectable <strong>12 months before motor symptom onset.</strong> <em>Rusz et al., Annals of Neurology, 2021</em></div>
       </div>
       <div class="list-item">
         <div class="list-mark"></div>
-        <div class="list-text">Voice changes in Parkinson's are detectable <strong>up to 10 years</strong> before motor symptoms. <em>Tsanas et al., IEEE Transactions on Neural Systems, 2012</em></div>
+        <div class="list-text">Voice-based ML biomarkers achieved <strong>AUC 0.80</strong> for early Alzheimer's detection, outperforming traditional naming tests. <em>Hajjar et al., Alzheimer's and Dementia: DADM, 2023</em></div>
       </div>
       <div class="list-item">
         <div class="list-mark"></div>
-        <div class="list-text">REM sleep behavior disorder predicts Parkinson's with <strong>over 90% accuracy</strong> years in advance. <em>Schenck et al., Sleep, 2013</em></div>
+        <div class="list-text">An AI voice model distinguishes depression from healthy controls with <strong>AUC 0.93,</strong> at parity with standard clinical questionnaires. <em>Menne et al., BMC Psychiatry, 2024</em></div>
       </div>
       <div class="list-item">
         <div class="list-mark"></div>
-        <div class="list-text">Language decline in speech predicts Alzheimer's with <strong>81.9% accuracy</strong> using AI analysis. <em>Fraser et al., Journal of Alzheimer's Disease, 2016</em></div>
+        <div class="list-text">Smartphone speech recordings identified Parkinson's conversion in REM sleep disorder patients with <strong>AUC 0.85.</strong> <em>Illner et al., Movement Disorders, 2024</em></div>
       </div>
     </div>
     <div>
@@ -328,7 +328,11 @@ strong { font-weight: 600; color: var(--black); }
       </div>
       <div class="list-item">
         <div class="list-mark"></div>
-        <div class="list-text">If caught early, drugs that slow progression can be far more effective. The detection window exists. We are simply not looking.</div>
+        <div class="list-text">Three linguistic features from remote app recordings can distinguish frontotemporal dementia with <strong>84.8% accuracy</strong> and no clinic visit. <em>Vonk et al., Alzheimer's and Dementia, 2025</em></div>
+      </div>
+      <div class="list-item">
+        <div class="list-mark"></div>
+        <div class="list-text">If caught early, interventions that slow progression become far more effective. The detection window exists. We are simply not using it.</div>
       </div>
     </div>
   </div>
@@ -342,28 +346,28 @@ strong { font-weight: 600; color: var(--black); }
 
   <div class="cards c2" style="max-width:780px;">
     <div class="card">
-      <div class="card-num">01</div>
-      <div class="card-title">Voice acoustics</div>
-      <div class="card-body">89 acoustic features extracted from a single recording: pitch, jitter, shimmer, speech rate, pause ratio, MFCCs, and more.</div>
-      <div class="card-source">librosa (McFee et al.) + DementiaBank speech corpus</div>
+      <div class="card-num">Voice — Parkinson's</div>
+      <div class="card-title">18 vocal features, no clinic needed</div>
+      <div class="card-body">Articulation, phonation, and prosody features effectively distinguish Parkinsonian voices. One year of longitudinal monitoring detects disease progression.</div>
+      <div class="card-source">Wright and Aharonson, Brain Sciences, 2025 &middot; Rusz et al., Neuroscience and Biobehavioral Reviews, 2024</div>
     </div>
     <div class="card">
-      <div class="card-num">02</div>
-      <div class="card-title">Language patterns</div>
-      <div class="card-body">Reduced lexical diversity, shorter sentences, more fillers, and lower information density all precede Alzheimer's diagnosis by years.</div>
-      <div class="card-source">Fraser et al., Journal of Alzheimer's Disease, 2016</div>
+      <div class="card-num">Voice + Language — Alzheimer's</div>
+      <div class="card-title">93.8% accuracy with multimodal fusion</div>
+      <div class="card-body">Combining acoustic features with linguistic analysis (speech rate, lexical diversity, pause ratio) achieves 93.8% accuracy on benchmark datasets.</div>
+      <div class="card-source">Qi et al., Frontiers in Aging Neuroscience, 2023 &middot; Saeedi et al., Journal of Prevention of Alzheimer's Disease, 2024</div>
     </div>
     <div class="card">
-      <div class="card-num">03</div>
-      <div class="card-title">Dream content</div>
-      <div class="card-body">Narrative incoherence and self-motion themes in dreams correlate with REM sleep disorder and early Parkinson's risk.</div>
-      <div class="card-source">Nielsen and Stenstrom, Nature, 2005; Postuma et al., 2019</div>
+      <div class="card-num">Dream content — REM Disorder</div>
+      <div class="card-title">Violent dream themes as a prodromal marker</div>
+      <div class="card-body">RBD patients consistently report being chased or attacked. This dream pattern is the most diagnostically specific RBD marker and predicts Parkinson's conversion.</div>
+      <div class="card-source">Fasiello et al., Journal of Clinical Medicine, 2022 &middot; Subert et al., Movement Disorders, 2022</div>
     </div>
     <div class="card">
-      <div class="card-num">04</div>
-      <div class="card-title">Trend detection</div>
-      <div class="card-body">Mann-Kendall nonparametric analysis detects monotonic trends in biomarker data over 30, 90, and 180-day windows with significance testing.</div>
-      <div class="card-source">Mann (1945), Kendall (1975)</div>
+      <div class="card-num">LLMs for assessment</div>
+      <div class="card-title">GPT-3 embeddings outperform acoustic features</div>
+      <div class="card-body">Large language model embeddings from speech transcripts achieved 80.3% accuracy for Alzheimer's detection, exceeding classical acoustic models at 74.6%.</div>
+      <div class="card-source">Agbavor and Liang, PLOS Digital Health, 2022 &middot; Treder et al., Frontiers in Dementia, 2024</div>
     </div>
   </div>
 </div>
@@ -598,8 +602,8 @@ strong { font-weight: 600; color: var(--black); }
   <h2>Make early detection<br/>effortless and free.</h2>
 
   <div class="pullquote">
-    <p>"If Alzheimer's is identified a decade before symptoms, interventions that slow progression become dramatically more effective. The biological window exists. The tools now exist. The only missing piece is making screening part of daily life."</p>
-    <cite>Synthesized from Bateman et al. (NEJM 2012), Sperling et al. (Alzheimer's and Dementia 2011), and current NIA clinical trial data</cite>
+    <p>"A 450-participant longitudinal study established that speech recorded remotely on a smartphone can reliably track cognitive change over time. The protocol is scalable, requires no clinic visit, and works across age groups."</p>
+    <cite>Saunders et al., SIDE-AD study, BMJ Open, 2024 &middot; Full research bibliography at dreamtrack.health/research</cite>
   </div>
 
   <div class="byline">
