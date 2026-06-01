@@ -302,27 +302,27 @@ em { font-style:italic; }
   <p class="lead" style="margin-top:0; max-width:580px;">All five are detectable in speech years before clinical diagnosis. None have a standard early screening tool available to the public.</p>
 
   <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr 1fr; gap:1px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); width:100%; max-width:900px; margin-top:28px;">
-    <div style="background:#fff; padding:18px 14px; text-align:center;">
+    <div style="background:rgba(255,255,255,.05); padding:18px 14px; text-align:center;">
       <div style="font-family:Figtree,sans-serif; font-size:11px; font-weight:800; color:rgba(255,255,255,.85); margin-bottom:8px; letter-spacing:.3px;">Alzheimer's</div>
       <div style="font-family:Figtree,sans-serif; font-size:26px; font-weight:900; color:#fff;">15 yr</div>
       <div style="font-size:10px; color:rgba(255,255,255,.3); margin-top:5px; line-height:1.4;">brain damage before symptoms</div>
     </div>
-    <div style="background:#fff; padding:18px 14px; text-align:center; border-left:1px solid rgba(255,255,255,.08);">
+    <div style="background:rgba(255,255,255,.05); padding:18px 14px; text-align:center; border-left:1px solid rgba(255,255,255,.08);">
       <div style="font-family:Figtree,sans-serif; font-size:11px; font-weight:800; color:rgba(255,255,255,.85); margin-bottom:8px; letter-spacing:.3px;">Parkinson's</div>
       <div style="font-family:Figtree,sans-serif; font-size:26px; font-weight:900; color:#fff;">10 yr</div>
       <div style="font-size:10px; color:rgba(255,255,255,.3); margin-top:5px; line-height:1.4;">voice changes before motor onset</div>
     </div>
-    <div style="background:#fff; padding:18px 14px; text-align:center; border-left:1px solid rgba(255,255,255,.08);">
+    <div style="background:rgba(255,255,255,.05); padding:18px 14px; text-align:center; border-left:1px solid rgba(255,255,255,.08);">
       <div style="font-family:Figtree,sans-serif; font-size:11px; font-weight:800; color:rgba(255,255,255,.85); margin-bottom:8px; letter-spacing:.3px;">Depression</div>
       <div style="font-family:Figtree,sans-serif; font-size:26px; font-weight:900; color:#fff;">AUC<br/>0.93</div>
       <div style="font-size:10px; color:rgba(255,255,255,.3); margin-top:5px; line-height:1.4;">AI voice detection accuracy</div>
     </div>
-    <div style="background:#fff; padding:18px 14px; text-align:center; border-left:1px solid rgba(255,255,255,.08);">
+    <div style="background:rgba(255,255,255,.05); padding:18px 14px; text-align:center; border-left:1px solid rgba(255,255,255,.08);">
       <div style="font-family:Figtree,sans-serif; font-size:11px; font-weight:800; color:rgba(255,255,255,.85); margin-bottom:8px; letter-spacing:.3px;">REM Disorder</div>
       <div style="font-family:Figtree,sans-serif; font-size:26px; font-weight:900; color:#fff;">90%</div>
       <div style="font-size:10px; color:rgba(255,255,255,.3); margin-top:5px; line-height:1.4;">predicts Parkinson's conversion</div>
     </div>
-    <div style="background:#fff; padding:18px 14px; text-align:center; border-left:1px solid rgba(255,255,255,.08);">
+    <div style="background:rgba(255,255,255,.05); padding:18px 14px; text-align:center; border-left:1px solid rgba(255,255,255,.08);">
       <div style="font-family:Figtree,sans-serif; font-size:11px; font-weight:800; color:rgba(255,255,255,.85); margin-bottom:8px; letter-spacing:.3px;">FTD</div>
       <div style="font-family:Figtree,sans-serif; font-size:26px; font-weight:900; color:#fff;">84.8%</div>
       <div style="font-size:10px; color:rgba(255,255,255,.3); margin-top:5px; line-height:1.4;">accuracy from remote speech alone</div>
@@ -598,6 +598,66 @@ em { font-style:italic; }
     <span class="cm"># Rusz et al., Annals of Neurology, 2021: monopitch is the most specific prodromal PD marker</span><br/>
     <span class="ck">if</span> features.f0_std <span class="ck">is not None and</span> features.f0_std <span class="ck">&lt;</span> <span class="cv">20</span>:<br/>
     &nbsp;&nbsp;&nbsp;&nbsp;scores[<span class="cs">"parkinson"</span>] += <span class="cv">0.30</span>
+  </div>
+  <p style="font-size:12px; color:rgba(255,255,255,.3); margin-top:12px; max-width:520px; text-align:center; line-height:1.6;">
+    This checks whether the person's voice pitch stays too flat and never varies much. A healthy voice goes up and down naturally. A very flat, unchanging pitch is one of the earliest signs of Parkinson's, detectable years before any physical symptoms appear.
+  </p>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     GP REPORT
+══════════════════════════════════════════════════════════════ -->
+<div class="slide dark" style="padding:60px 80px;">
+  <div class="eyebrow">A feature for doctors</div>
+  <h2 style="color:#fff; margin-bottom:14px;">One button. A full medical report.</h2>
+  <p class="lead" style="max-width:560px;">After recording dreams for a few weeks, users can download a PDF report and share it with their doctor. It reads like a real clinical document.</p>
+
+  <div style="display:flex; gap:24px; max-width:860px; width:100%; margin-top:28px; align-items:flex-start;">
+
+    <!-- PDF mockup -->
+    <div style="width:200px; flex-shrink:0; background:#f8f8f8; border-radius:12px; padding:20px 16px; box-shadow:0 20px 60px rgba(0,0,0,.5);">
+      <div style="font-size:7px; font-weight:800; color:#1e2d5a; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:8px;">DreamTrack Health</div>
+      <div style="font-size:9px; font-weight:700; color:#1e2d5a; margin-bottom:2px;">Neurological Biomarker Report</div>
+      <div style="font-size:7px; color:#9ca3af; margin-bottom:10px;">90-day analysis period</div>
+      <div style="height:1px; background:#e5e7eb; margin-bottom:8px;"></div>
+      <div style="font-size:7px; font-weight:700; color:#374151; margin-bottom:5px; text-transform:uppercase; letter-spacing:1px;">Voice Biomarkers</div>
+      <div style="display:flex; justify-content:space-between; margin-bottom:3px;"><span style="font-size:6.5px; color:#6b7280;">Speech rate</span><span style="font-size:6.5px; color:#374151; font-weight:600;">3.2 syl/sec</span></div>
+      <div style="display:flex; justify-content:space-between; margin-bottom:3px;"><span style="font-size:6.5px; color:#6b7280;">Pause ratio</span><span style="font-size:6.5px; color:#374151; font-weight:600;">0.28</span></div>
+      <div style="display:flex; justify-content:space-between; margin-bottom:3px;"><span style="font-size:6.5px; color:#6b7280;">Parkinson index</span><span style="font-size:6.5px; color:#059669; font-weight:600;">Low</span></div>
+      <div style="display:flex; justify-content:space-between; margin-bottom:8px;"><span style="font-size:6.5px; color:#6b7280;">Depression index</span><span style="font-size:6.5px; color:#059669; font-weight:600;">Low</span></div>
+      <div style="height:1px; background:#e5e7eb; margin-bottom:8px;"></div>
+      <div style="font-size:7px; font-weight:700; color:#374151; margin-bottom:5px; text-transform:uppercase; letter-spacing:1px;">Dream Analysis</div>
+      <div style="display:flex; justify-content:space-between; margin-bottom:3px;"><span style="font-size:6.5px; color:#6b7280;">Coherence</span><span style="font-size:6.5px; color:#374151; font-weight:600;">0.74</span></div>
+      <div style="display:flex; justify-content:space-between; margin-bottom:3px;"><span style="font-size:6.5px; color:#6b7280;">Emotional tone</span><span style="font-size:6.5px; color:#374151; font-weight:600;">Neutral</span></div>
+      <div style="display:flex; justify-content:space-between; margin-bottom:8px;"><span style="font-size:6.5px; color:#6b7280;">RBD score</span><span style="font-size:6.5px; color:#059669; font-weight:600;">Low</span></div>
+      <div style="height:1px; background:#e5e7eb; margin-bottom:8px;"></div>
+      <div style="font-size:6px; color:#9ca3af; line-height:1.5;">Not a clinical diagnosis. Share with a qualified healthcare professional.</div>
+    </div>
+
+    <!-- what it contains -->
+    <div style="flex:1;">
+      <div style="display:flex; flex-direction:column; gap:1px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.06);">
+        <div style="background:rgba(255,255,255,.04); padding:14px 18px;">
+          <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,.8); margin-bottom:3px;">Voice biomarker averages</div>
+          <div style="font-size:12px; color:rgba(255,255,255,.4); line-height:1.5;">Speech rate, pause ratio, pitch variation, jitter, shimmer, HNR averaged across all recordings in the selected period.</div>
+        </div>
+        <div style="background:rgba(255,255,255,.04); padding:14px 18px; border-top:1px solid rgba(255,255,255,.06);">
+          <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,.8); margin-bottom:3px;">Dream narrative analysis</div>
+          <div style="font-size:12px; color:rgba(255,255,255,.4); line-height:1.5;">Coherence scores, emotional tone, RBD dream score, FTD language score, recall completeness.</div>
+        </div>
+        <div style="background:rgba(255,255,255,.04); padding:14px 18px; border-top:1px solid rgba(255,255,255,.06);">
+          <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,.8); margin-bottom:3px;">Trend direction</div>
+          <div style="font-size:12px; color:rgba(255,255,255,.4); line-height:1.5;">Each condition marked as improving, stable, or worsening with statistical confidence level.</div>
+        </div>
+        <div style="background:rgba(255,255,255,.04); padding:14px 18px; border-top:1px solid rgba(255,255,255,.06);">
+          <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,.8); margin-bottom:3px;">Plain-language summary</div>
+          <div style="font-size:12px; color:rgba(255,255,255,.4); line-height:1.5;">A paragraph written for a GP to read without any background in AI or neuroscience.</div>
+        </div>
+      </div>
+      <p style="font-size:11px; color:rgba(255,255,255,.2); margin-top:10px;">Generated with ReportLab on A4. Downloaded as PDF in one click.</p>
+    </div>
+
   </div>
 </div>
 
