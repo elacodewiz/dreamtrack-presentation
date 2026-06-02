@@ -690,6 +690,103 @@ em { font-style:italic; }
 
 
 <!-- ══════════════════════════════════════════════════════════════
+     GENETIC THRESHOLDS
+══════════════════════════════════════════════════════════════ -->
+<div class="slide dark" style="padding:52px 80px; overflow:hidden;">
+  <div class="eyebrow">Personalisation</div>
+  <h2 style="color:#fff; margin-bottom:6px;">How genetic mutations change the alert threshold</h2>
+  <p style="font-size:12px; color:rgba(255,255,255,.35); text-align:center; margin-bottom:20px;">Scores are 0-1. Without any mutation: watch at &ge;0.30, alert at &ge;0.55. For carriers the alert threshold is lowered using published odds ratios.</p>
+
+  <div style="font-size:12px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:10px; padding:12px 18px; max-width:860px; width:100%; margin-bottom:16px; text-align:center; color:rgba(255,255,255,.5);">
+    <span style="color:rgba(255,255,255,.8); font-family:Figtree,sans-serif; font-weight:700;">effective alert threshold = 0.55 &times; (1 &minus; reduction%)</span>
+    &nbsp;&nbsp;|&nbsp;&nbsp; max stacking cap: 55% reduction (threshold never falls below 0.25)
+  </div>
+
+  <div style="width:100%; max-width:860px; overflow:hidden; border:1px solid rgba(255,255,255,.08); border-radius:10px;">
+    <table style="width:100%; border-collapse:collapse; font-size:11.5px; color:rgba(255,255,255,.7);">
+      <thead>
+        <tr style="background:rgba(255,255,255,.06); text-align:left;">
+          <th style="padding:9px 14px; font-weight:700; color:rgba(255,255,255,.9);">Mutation</th>
+          <th style="padding:9px 14px; font-weight:700; color:rgba(255,255,255,.9);">Condition</th>
+          <th style="padding:9px 14px; font-weight:700; color:rgba(255,255,255,.9);">Reduction</th>
+          <th style="padding:9px 14px; font-weight:700; color:rgba(255,255,255,.9);">Alert threshold</th>
+          <th style="padding:9px 14px; font-weight:700; color:rgba(255,255,255,.9);">No mutation baseline</th>
+          <th style="padding:9px 14px; font-weight:700; color:rgba(255,255,255,.9);">Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-top:1px solid rgba(255,255,255,.06);">
+          <td style="padding:8px 14px; font-weight:600; color:#c4b5fd;">APOE e4 het</td>
+          <td style="padding:8px 14px;">Alzheimer's</td>
+          <td style="padding:8px 14px; color:#fbbf24;">22%</td>
+          <td style="padding:8px 14px; color:#f87171;">0.429</td>
+          <td style="padding:8px 14px; color:rgba(255,255,255,.4);">0.55</td>
+          <td style="padding:8px 14px;"><a href="https://doi.org/10.1038/s41591-024-02931-w" target="_blank" style="color:rgba(255,255,255,.4); text-decoration:underline; text-underline-offset:2px;">Fortea, Nature Med 2024</a></td>
+        </tr>
+        <tr style="border-top:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.02);">
+          <td style="padding:8px 14px; font-weight:600; color:#c4b5fd;">APOE e4/e4 hom</td>
+          <td style="padding:8px 14px;">Alzheimer's</td>
+          <td style="padding:8px 14px; color:#fbbf24;">42%</td>
+          <td style="padding:8px 14px; color:#f87171;">0.319</td>
+          <td style="padding:8px 14px; color:rgba(255,255,255,.4);">0.55</td>
+          <td style="padding:8px 14px;"><a href="https://doi.org/10.1038/s41591-024-02931-w" target="_blank" style="color:rgba(255,255,255,.4); text-decoration:underline; text-underline-offset:2px;">Fortea, Nature Med 2024</a></td>
+        </tr>
+        <tr style="border-top:1px solid rgba(255,255,255,.06);">
+          <td style="padding:8px 14px; font-weight:600; color:#c4b5fd;">PSEN1 / PSEN2</td>
+          <td style="padding:8px 14px;">Alzheimer's</td>
+          <td style="padding:8px 14px; color:#fbbf24;">37%</td>
+          <td style="padding:8px 14px; color:#f87171;">0.347</td>
+          <td style="padding:8px 14px; color:rgba(255,255,255,.4);">0.55</td>
+          <td style="padding:8px 14px;"><a href="https://doi.org/10.1056/NEJMoa2304418" target="_blank" style="color:rgba(255,255,255,.4); text-decoration:underline; text-underline-offset:2px;">DIAN 2023</a></td>
+        </tr>
+        <tr style="border-top:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.02);">
+          <td style="padding:8px 14px; font-weight:600; color:#c4b5fd;">LRRK2 G2019S</td>
+          <td style="padding:8px 14px;">Parkinson's</td>
+          <td style="padding:8px 14px; color:#fbbf24;">17%</td>
+          <td style="padding:8px 14px; color:#f87171;">0.456</td>
+          <td style="padding:8px 14px; color:rgba(255,255,255,.4);">0.55</td>
+          <td style="padding:8px 14px;"><a href="https://doi.org/10.3233/JPD-181427" target="_blank" style="color:rgba(255,255,255,.4); text-decoration:underline; text-underline-offset:2px;">Arora, JPD 2018</a></td>
+        </tr>
+        <tr style="border-top:1px solid rgba(255,255,255,.06);">
+          <td style="padding:8px 14px; font-weight:600; color:#c4b5fd;">GBA severe (L444P)</td>
+          <td style="padding:8px 14px;">PD + Alzheimer's</td>
+          <td style="padding:8px 14px; color:#fbbf24;">27% / 30%</td>
+          <td style="padding:8px 14px; color:#f87171;">0.402 / 0.385</td>
+          <td style="padding:8px 14px; color:rgba(255,255,255,.4);">0.55</td>
+          <td style="padding:8px 14px;"><a href="https://doi.org/10.1002/mds.29543" target="_blank" style="color:rgba(255,255,255,.4); text-decoration:underline; text-underline-offset:2px;">Parlar, Mov Disord 2023</a></td>
+        </tr>
+        <tr style="border-top:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.02);">
+          <td style="padding:8px 14px; font-weight:600; color:#c4b5fd;">MAPT</td>
+          <td style="padding:8px 14px;">FTD</td>
+          <td style="padding:8px 14px; color:#fbbf24;">32%</td>
+          <td style="padding:8px 14px; color:#f87171;">0.374</td>
+          <td style="padding:8px 14px; color:rgba(255,255,255,.4);">0.55</td>
+          <td style="padding:8px 14px;"><a href="https://doi.org/10.1007/s00415-022-11021-6" target="_blank" style="color:rgba(255,255,255,.4); text-decoration:underline; text-underline-offset:2px;">Bouzigues, J Neurol 2022</a></td>
+        </tr>
+        <tr style="border-top:1px solid rgba(255,255,255,.06);">
+          <td style="padding:8px 14px; font-weight:600; color:#c4b5fd;">GRN / PGRN</td>
+          <td style="padding:8px 14px;">FTD</td>
+          <td style="padding:8px 14px; color:#fbbf24;">22%</td>
+          <td style="padding:8px 14px; color:#f87171;">0.429</td>
+          <td style="padding:8px 14px; color:rgba(255,255,255,.4);">0.55</td>
+          <td style="padding:8px 14px;"><a href="https://doi.org/10.1016/j.jns.2023.120557" target="_blank" style="color:rgba(255,255,255,.4); text-decoration:underline; text-underline-offset:2px;">GENFI, J Neurol Sci 2023</a></td>
+        </tr>
+        <tr style="border-top:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.02);">
+          <td style="padding:8px 14px; font-weight:600; color:#c4b5fd;">BAP1</td>
+          <td style="padding:8px 14px;">No threshold change</td>
+          <td style="padding:8px 14px; color:rgba(255,255,255,.3);">0%</td>
+          <td style="padding:8px 14px; color:rgba(255,255,255,.3);">0.55 (unchanged)</td>
+          <td style="padding:8px 14px; color:rgba(255,255,255,.4);">0.55</td>
+          <td style="padding:8px 14px;"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11970580/" target="_blank" style="color:rgba(255,255,255,.4); text-decoration:underline; text-underline-offset:2px;">PMC 2025 (meningioma flag)</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:10.5px; color:rgba(255,255,255,.2); margin-top:12px; text-align:center;">Family history also adjusts thresholds: 1 FDR with Alzheimer's -20%, 2+ FDR -32% | 1 FDR with Parkinson's -25% (OR 3.23, Neurology Genetics 2024) | p-value threshold for trend significance: 0.05 (no mutation), 0.08 (any carrier), 0.10 (PSEN / APOE e4/e4)</p>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════
      6. TECH STACK
 ══════════════════════════════════════════════════════════════ -->
 <div class="slide dark" style="padding:60px 80px;">
