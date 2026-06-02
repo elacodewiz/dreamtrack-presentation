@@ -356,7 +356,7 @@ em { font-style:italic; }
     <div class="dark-card">
       <div class="dc-label">Voice analysis</div>
       <div class="dc-title">How you sound</div>
-      <div class="dc-body">The app measures 89 acoustic features pitch variation, speech rate, pause patterns, vocal tremor. These are the same markers researchers use in clinical studies. Each feature maps to a specific condition with a citation from a peer-reviewed paper.</div>
+      <div class="dc-body">The app measures 89 language-independent acoustic features: pitch variation, speech rate, pause patterns, vocal tremor. These are the same markers researchers use in clinical studies. Each feature maps to a specific condition with a citation from a peer-reviewed paper.</div>
     </div>
     <div class="dark-card">
       <div class="dc-label">Dream analysis</div>
@@ -367,7 +367,7 @@ em { font-style:italic; }
 
   <div style="margin-top:20px; padding:14px 20px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:12px; max-width:780px; width:100%;">
     <div style="font-size:12px; color:rgba(255,255,255,.35); text-align:center; line-height:1.6;">
-      Audio → <strong style="color:rgba(255,255,255,.7);">librosa</strong> (89 acoustic features) → voice scores &nbsp;|&nbsp; Audio → <strong style="color:rgba(255,255,255,.7);">Amazon Transcribe / Whisper</strong> → transcript → <strong style="color:rgba(255,255,255,.7);">spaCy + Claude</strong> (dream NLP) → dream scores &nbsp;|&nbsp; both stored in <strong style="color:rgba(255,255,255,.7);">PostgreSQL</strong>
+      Audio → <strong style="color:rgba(255,255,255,.7);">librosa</strong> (89 language-independent acoustic features) → voice scores &nbsp;|&nbsp; Audio → <strong style="color:rgba(255,255,255,.7);">Amazon Transcribe / Whisper</strong> → transcript → <strong style="color:rgba(255,255,255,.7);">spaCy + Claude</strong> (dream NLP) → dream scores &nbsp;|&nbsp; both stored in <strong style="color:rgba(255,255,255,.7);">PostgreSQL</strong>
     </div>
   </div>
 </div>
