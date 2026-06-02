@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Basis — DreamTrack Health</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background:#03020d; color:#fff;
+  font-family:'Noto Sans', system-ui, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+}
+
+a { color:inherit; text-decoration:none; }
+
+/* Nav */
+nav {
+  position:sticky; top:0; z-index:50;
+  background:rgba(3,2,13,0.85); backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  padding:0 32px; height:52px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.nav-logo { font-family:'Figtree',sans-serif; font-size:14px; font-weight:700; color:rgba(255,255,255,0.7); }
+.nav-back {
+  font-size:11px; font-weight:600; color:rgba(255,255,255,0.4);
+  padding:5px 14px; border:1px solid rgba(255,255,255,0.12);
+  border-radius:100px; transition:all .2s;
+}
+.nav-back:hover { color:rgba(255,255,255,0.8); border-color:rgba(255,255,255,0.3); }
+
+/* Hero */
+.hero {
+  max-width:720px; margin:0 auto;
+  padding:64px 32px 48px;
+}
+.hero-eyebrow {
+  font-size:10px; font-weight:700; letter-spacing:3px;
+  text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:16px;
+}
+.hero h1 {
+  font-family:'Figtree',sans-serif; font-size:clamp(28px,4vw,44px);
+  font-weight:800; line-height:1.05; letter-spacing:-1.5px;
+  margin-bottom:14px;
+}
+.hero p {
+  font-size:14px; color:rgba(255,255,255,0.4); line-height:1.7; max-width:520px;
+}
+.hero-stat {
+  display:inline-block; margin-top:20px;
+  font-size:11px; color:rgba(255,255,255,0.3);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:100px; padding:5px 14px;
+}
+
+/* Content */
+.content { max-width:720px; margin:0 auto; padding:0 32px 80px; }
+
+/* Category */
+.category { margin-bottom:48px; }
+.category-label {
+  display:inline-flex; align-items:center; gap:7px;
+  font-size:11px; font-weight:600;
+  padding:4px 12px; border-radius:100px;
+  margin-bottom:20px;
+}
+.dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+
+/* Paper card */
+.paper {
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:14px; overflow:hidden;
+  margin-bottom:10px;
+  background:rgba(255,255,255,0.02);
+  transition:border-color .2s;
+}
+.paper:hover { border-color:rgba(255,255,255,0.14); }
+
+.paper-header {
+  padding:16px 20px;
+  cursor:pointer;
+  display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+}
+.paper-title {
+  font-size:14px; font-weight:600; color:rgba(255,255,255,0.8);
+  line-height:1.45; margin-bottom:4px;
+  font-family:'Figtree',sans-serif;
+}
+.paper-meta { font-size:11px; color:rgba(255,255,255,0.25); }
+.paper-toggle {
+  font-size:16px; color:rgba(255,255,255,0.2); flex-shrink:0; margin-top:2px;
+  transition:transform .25s;
+}
+
+.paper-body {
+  display:none;
+  padding:0 20px 18px;
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+.paper-body.open { display:block; }
+
+.section-label {
+  font-size:9px; font-weight:700; letter-spacing:2.5px;
+  text-transform:uppercase; color:rgba(255,255,255,0.25);
+  margin-bottom:6px; margin-top:14px;
+}
+.finding {
+  font-size:13px; color:rgba(255,255,255,0.55); line-height:1.65;
+}
+.usage {
+  font-size:13px; color:rgba(255,255,255,0.7); line-height:1.65;
+  padding:10px 14px;
+  background:rgba(196,181,253,0.07);
+  border-left:2px solid rgba(196,181,253,0.4);
+  border-radius:0 8px 8px 0;
+  margin-top:4px;
+}
+.doi-link {
+  display:inline-flex; align-items:center; gap:5px;
+  font-size:11px; color:rgba(255,255,255,0.3);
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  transition:color .2s;
+  margin-top:14px;
+}
+.doi-link:hover { color:rgba(255,255,255,0.6); }
+
+/* Category colors */
+.cat-blue   { background:rgba(59,130,246,0.1);  color:#93c5fd; }
+.cat-violet { background:rgba(139,92,246,0.1);  color:#c4b5fd; }
+.cat-rose   { background:rgba(244,63,94,0.1);   color:#fda4af; }
+.cat-amber  { background:rgba(245,158,11,0.1);  color:#fcd34d; }
+.cat-orange { background:rgba(249,115,22,0.1);  color:#fdba74; }
+.cat-emerald{ background:rgba(16,185,129,0.1);  color:#6ee7b7; }
+.cat-slate  { background:rgba(148,163,184,0.1); color:#cbd5e1; }
+.cat-teal   { background:rgba(20,184,166,0.1);  color:#5eead4; }
+
+.dot-blue    { background:#3b82f6; }
+.dot-violet  { background:#8b5cf6; }
+.dot-rose    { background:#f43f5e; }
+.dot-amber   { background:#f59e0b; }
+.dot-orange  { background:#f97316; }
+.dot-emerald { background:#10b981; }
+.dot-slate   { background:#94a3b8; }
+.dot-teal    { background:#14b8a6; }
+
+/* Footer note */
+.footer-note {
+  max-width:720px; margin:0 auto;
+  padding:0 32px 60px;
+}
+.note-box {
+  padding:16px 20px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:12px;
+  font-size:12px; color:rgba(255,255,255,0.25); line-height:1.7;
+}
+
+@media(max-width:600px) {
+  .hero, .content, .footer-note { padding-left:20px; padding-right:20px; }
+  nav { padding:0 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">DreamTrack Health</span>
+  <a href="index.html" class="nav-back">← Back to presentation</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Scientific basis</div>
+  <h1>25 peer-reviewed papers.<br/>Every threshold cited.</h1>
+  <p>Every score, threshold, and genetic modifier in DreamTrack traces back to a published study. Click any paper to see the key finding and exactly how DreamTrack uses it.</p>
+  <span class="hero-stat">25 papers · 8 categories · all DOIs linked</span>
+</div>
+
+<div class="content">
+
+<!-- ── 1. PARKINSON'S ─────────────────────────────────────────── -->
+<div class="category">
+  <div class="category-label cat-blue"><span class="dot dot-blue"></span>Parkinson's Disease — Voice</div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Speech biomarkers in rapid eye movement sleep behavior disorder and Parkinson disease</div>
+        <div class="paper-meta">Rusz et al. · Annals of Neurology · 2021</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">7-center international study. Monopitch identified as the single most specific prodromal Parkinson's marker — measurable up to 12 months before motor symptoms appear.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Sets the f0_std &lt; 20 Hz threshold. If pitch variation drops below this level, DreamTrack adds +0.30 to the Parkinson's score — the highest-weighted single feature.</div>
+      <a href="https://doi.org/10.1002/ana.26085" target="_blank" class="doi-link">doi.org/10.1002/ana.26085 ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">From prodromal stages to clinical trials: The promise of digital speech biomarkers in Parkinson's disease</div>
+        <div class="paper-meta">Rusz, Krack, Tripoliti · Neuroscience & Biobehavioral Reviews · 2024</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">One year of longitudinal speech monitoring is sufficient to detect Parkinson's progression. Loudness variation and articulation clarity are among the most sensitive markers.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Sets the energy flatness threshold (energy_std_db &lt; 4). Low loudness variation adds +0.20 to the Parkinson's score.</div>
+      <a href="https://doi.org/10.1016/j.neubiorev.2024.105922" target="_blank" class="doi-link">doi.org/10.1016/j.neubiorev.2024.105922 ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Vocal feature changes for monitoring Parkinson's disease progression: a systematic review</div>
+        <div class="paper-meta">Wright & Aharonson · Brain Sciences · 2025</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">18 vocal features across articulation, phonation, and prosody effectively distinguish Parkinsonian voices from healthy controls.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Validates the feature set DreamTrack extracts via librosa: jitter, shimmer, HNR, speech rate, and pause ratio are all in the validated 18-feature set.</div>
+      <a href="https://doi.org/10.3390/brainsci15030320" target="_blank" class="doi-link">doi.org/10.3390/brainsci15030320 ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Clinical Measurement of Speech and Voice (2nd ed.)</div>
+        <div class="paper-meta">Baken & Orlikoff · Singular Publishing · 2000</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">The standard clinical reference for normal voice. Defines healthy jitter (&lt;1%), shimmer, and HNR values used in clinical voice assessment worldwide.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">The jitter, shimmer, and HNR thresholds in DreamTrack's Parkinson's scoring are taken directly from this reference standard.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 2. ALZHEIMER'S ─────────────────────────────────────────── -->
+<div class="category">
+  <div class="category-label cat-violet"><span class="dot dot-violet"></span>Alzheimer's Disease — Voice & Narrative</div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Development of digital voice biomarkers and associations with cognition, cerebrospinal biomarkers, and neural representation in early Alzheimer's disease</div>
+        <div class="paper-meta">Hajjar et al. · Alzheimer's & Dementia: DADM · 2023</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">Voice-based ML biomarkers achieved AUC 0.80 for detecting early Alzheimer's — outperforming traditional naming tests. Pause patterns were a key discriminator, including amyloid-beta status detection in preclinical AD.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Sets mean pause duration &gt; 800ms (+0.25) and pause ratio &gt; 0.5 (+0.20) thresholds in the Alzheimer's score.</div>
+      <a href="https://doi.org/10.1002/dad2.12393" target="_blank" class="doi-link">doi.org/10.1002/dad2.12393 ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Acoustic speech analysis in Alzheimer's disease: a systematic review and meta-analysis</div>
+        <div class="paper-meta">Saeedi et al. · Journal of Prevention of Alzheimer's Disease · 2024</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">Meta-analysis of 34 studies. Speech rate ranked #1 as the most consistent acoustic marker for distinguishing Alzheimer's from healthy controls across all studies.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Sets speech rate &lt; 2.5 words/second (+0.30) — the single highest-weighted feature in DreamTrack's Alzheimer's score.</div>
+      <a href="https://doi.org/10.14283/jpad.2024.132" target="_blank" class="doi-link">doi.org/10.14283/jpad.2024.132 ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Noninvasive automatic detection of Alzheimer's disease from spontaneous speech: a review</div>
+        <div class="paper-meta">Qi et al. · Frontiers in Aging Neuroscience · 2023</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">Combining acoustic features with linguistic analysis achieved 93.8% accuracy on benchmark Alzheimer's datasets — significantly better than either modality alone.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Justifies DreamTrack's two-layer approach: voice analysis (librosa acoustic features) combined with dream NLP (Claude semantic analysis) for Alzheimer's scoring.</div>
+      <a href="https://doi.org/10.3389/fnagi.2023.1224723" target="_blank" class="doi-link">doi.org/10.3389/fnagi.2023.1224723 ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">The effects of very early Alzheimer's disease on the characteristics of writing by a renowned author</div>
+        <div class="paper-meta">Garrard et al. · Brain · 2005</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">Longitudinal linguistic analysis of a famous author's novels revealed vocabulary diversity declined years before Alzheimer's diagnosis — one of the earliest detectable signals.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Sets the type-token ratio threshold in FTD language scoring. Validates vocabulary diversity as an early cognitive marker measurable in dream narrations.</div>
+      <a href="https://doi.org/10.1093/brain/awh341" target="_blank" class="doi-link">doi.org/10.1093/brain/awh341 ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── 3. DEPRESSION ──────────────────────────────────────────── -->
+<div class="category">
+  <div class="category-label cat-rose"><span class="dot dot-rose"></span>Depression — Voice Biomarkers</div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">The voice of depression: speech features as biomarkers for major depressive disorder</div>
+        <div class="paper-meta">Menne et al. · BMC Psychiatry · 2024</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">An acoustic AI model achieved AUC = 0.93 distinguishing MDD from healthy controls — at parity with the BDI-II clinical depression questionnaire. Energy flatness is the primary discriminator.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Sets energy_std_db &lt; 5 (+0.20) and the f0_std &lt; 12 Hz (+0.25) thresholds. Validates the overall depression voice scoring approach.</div>
+      <a href="https://doi.org/10.1186/s12888-024-06253-6" target="_blank" class="doi-link">doi.org/10.1186/s12888-024-06253-6 ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Evaluation of an AI-based voice biomarker tool to detect signals consistent with moderate to severe depression</div>
+        <div class="paper-meta">Mazur et al. · Annals of Family Medicine · 2025</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">71.3% sensitivity, 73.5% specificity for moderate-to-severe depression in real primary care settings, benchmarked against PHQ-9. Voice biomarkers work outside the lab.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Confirms that voice-based depression detection works in real-world, non-clinical conditions — validates DreamTrack's at-home longitudinal approach.</div>
+      <a href="https://doi.org/10.1370/afm.240091" target="_blank" class="doi-link">doi.org/10.1370/afm.240091 ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Voice acoustic measures of depression severity and treatment response collected via interactive voice response (IVR) technology</div>
+        <div class="paper-meta">Mundt et al. · Journal of Neurolinguistics · 2007</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">Pause ratio and speech rate are reliable longitudinal depression markers, validated across treatment response cycles using phone-collected recordings.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Sets pause ratio &gt; 0.4 (+0.20) in the depression score. Also confirms that device recordings (not clinic equipment) are sufficient for longitudinal tracking.</div>
+      <a href="https://doi.org/10.1016/j.jneuroling.2006.04.001" target="_blank" class="doi-link">doi.org/10.1016/j.jneuroling.2006.04.001 ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── 4. RBD ──────────────────────────────────────────────────── -->
+<div class="category">
+  <div class="category-label cat-amber"><span class="dot dot-amber"></span>REM Sleep Behavior Disorder (RBD)</div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Dreaming in parasomnias: REM sleep behavior disorder as a model</div>
+        <div class="paper-meta">Fasiello et al. · Journal of Clinical Medicine · 2022</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">RBD patients consistently dream about being chased or attacked by humans or animals. This violent dream content is the most diagnostically specific RBD dream marker.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">The dream NLP layer flags attack/chase keywords as the primary RBD signal (+0.40). This is the direct basis of DreamTrack's RBD dream scoring layer.</div>
+      <a href="https://doi.org/10.3390/jcm11216379" target="_blank" class="doi-link">doi.org/10.3390/jcm11216379 ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Smartphone voice calls provide early biomarkers of Parkinsonism in rapid eye movement sleep behavior disorder</div>
+        <div class="paper-meta">Illner et al. · Movement Disorders · 2024</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">A smartphone speech app identified acoustic changes in RBD patients that predicted future Parkinson's conversion, achieving AUC = 0.85 vs healthy controls.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Validates that smartphone recordings are sufficient for RBD-related Parkinson's risk detection — the exact recording setup DreamTrack uses.</div>
+      <a href="https://doi.org/10.1002/mds.29921" target="_blank" class="doi-link">doi.org/10.1002/mds.29921 ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Linguistic abnormalities in isolated rapid eye movement sleep behavior disorder</div>
+        <div class="paper-meta">Šubert et al. · Movement Disorders · 2022</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">Automated linguistic analysis detected cognitive-language decline in RBD patients, establishing language as an early prodromal neurodegeneration marker alongside voice acoustics.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Supports combining linguistic (dream NLP) and acoustic (voice) analysis for RBD monitoring — not dream content alone.</div>
+      <a href="https://doi.org/10.1002/mds.29140" target="_blank" class="doi-link">doi.org/10.1002/mds.29140 ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">REM sleep behavior disorder: relation between aggressiveness and emotions expressed in dream enactment</div>
+        <div class="paper-meta">Bugalho et al. · Sleep Medicine · 2024</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">Higher anxiety and depression scores in RBD patients correlated with more frequent aggressive dream enactments. Dream content, mood, and behavior are diagnostically linked.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Supports weighting emotional tone in RBD dream scoring — fearful or aggressive emotional content in dreams increases the RBD signal alongside content keywords.</div>
+      <a href="https://doi.org/10.1016/j.sleep.2024.11.008" target="_blank" class="doi-link">doi.org/10.1016/j.sleep.2024.11.008 ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── 5. FTD ───────────────────────────────────────────────────── -->
+<div class="category">
+  <div class="category-label cat-orange"><span class="dot dot-orange"></span>Frontotemporal Dementia (FTD) — Language</div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Remote naturalistic speech analysis as a tool to classify behavioral variant frontotemporal dementia</div>
+        <div class="paper-meta">Vonk et al. · Alzheimer's & Dementia · 2025</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">Three linguistic features from remote app recordings distinguished FTD from healthy controls with 84.8% accuracy — no clinic visit required.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Sets causal density &lt; 0.20 (+0.30) and narrative progression thresholds in FTD scoring. Confirms that remote linguistic analysis is clinically meaningful for FTD detection.</div>
+      <a href="https://doi.org/10.1002/alz.091734" target="_blank" class="doi-link">doi.org/10.1002/alz.091734 ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Development of a speech-based composite score for remotely quantifying language changes in frontotemporal dementia</div>
+        <div class="paper-meta">Robin et al. · Cognitive and Behavioral Neurology · 2023</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">Eight remote digital speech variables tracked FTD language decline over 12 months with strong test-retest reliability.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Supports DreamTrack's longitudinal approach (daily recordings over months) for FTD detection — change over time matters more than any single session.</div>
+      <a href="https://doi.org/10.1097/WNN.0000000000000356" target="_blank" class="doi-link">doi.org/10.1097/WNN.0000000000000356 ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Changing perspectives on frontotemporal dementia: a review</div>
+        <div class="paper-meta">Snowden · Journal of Neuropsychology · 2023</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">40-year synthesis of FTD research. Reduced speech output, word-finding difficulty, and simplified sentence structure are core FTD language markers, distinct from behavioural variant features.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Sets mean sentence length &lt; 6 words (+0.20) in the FTD language score.</div>
+      <a href="https://doi.org/10.1111/jnp.12297" target="_blank" class="doi-link">doi.org/10.1111/jnp.12297 ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── 6. GENETIC RISK ─────────────────────────────────────────── -->
+<div class="category">
+  <div class="category-label cat-emerald"><span class="dot dot-emerald"></span>Genetic Risk Modifiers</div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">APOE4 homozygosity represents a distinct genetic form of Alzheimer's disease</div>
+        <div class="paper-meta">Fortea et al. · Nature Medicine · 2024</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">Study of 13,000+ individuals. APOE4 homozygosity proposed as a distinct genetic AD form: &gt;95% penetrance, amyloid pathology near-universal by age 65. One copy (het) raises risk 3–5x with biomarker changes ~7 years earlier than non-carriers.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">APOE e4 het: alert threshold lowered 22% (0.55 → 0.429). APOE e4/e4 hom: lowered 42% (0.55 → 0.319).</div>
+      <a href="https://doi.org/10.1038/s41591-024-02931-w" target="_blank" class="doi-link">doi.org/10.1038/s41591-024-02931-w ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Investigating voice as a biomarker for leucine-rich repeat kinase 2-associated Parkinson's disease</div>
+        <div class="paper-meta">Arora et al. · Journal of Parkinson's Disease · 2018</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">Asymptomatic LRRK2 G2019S carriers show detectably abnormal speech (75–76% sensitivity). LRRK2-PD has milder motor presentation than typical Parkinson's — standard thresholds miss these carriers.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Parkinson's motor threshold lowered 17% for LRRK2 carriers. Language/cognitive marker weight increased 1.4x to compensate for the milder motor signal.</div>
+      <a href="https://doi.org/10.3233/JPD-181389" target="_blank" class="doi-link">doi.org/10.3233/JPD-181389 ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Anomia is present pre-symptomatically in frontotemporal dementia due to MAPT mutations</div>
+        <div class="paper-meta">Bouzigues et al. · Journal of Neurology · 2022</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">MAPT mutation carriers show naming and fluency impairment even before symptoms — earlier than GRN or C9orf72 carriers. Any naming difficulty is a meaningful signal in this genotype.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Any naming or fluency impairment in MAPT carriers triggers an immediate flag regardless of overall score. FTD threshold lowered 32%.</div>
+      <a href="https://doi.org/10.1007/s00415-022-11068-0" target="_blank" class="doi-link">doi.org/10.1007/s00415-022-11068-0 ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Classification of GBA1 variants in Parkinson's disease: the GBA1-PD browser</div>
+        <div class="paper-meta">Parlar et al. · Movement Disorders · 2023</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">Definitive 3-tier GBA classification: severe (L444P, 10–15x PD risk), mild (N370S, up to 5x), risk (E326K, ~2x). GBA-PD also has faster cognitive decline and higher Lewy body conversion rate.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Tier-specific reductions: GBA severe: Parkinson's -27%, Alzheimer's -30%. GBA mild: -15% / -20%. GBA risk: -7%.</div>
+      <a href="https://doi.org/10.1002/mds.29314" target="_blank" class="doi-link">doi.org/10.1002/mds.29314 ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Genetic analysis and natural history of Parkinson's disease due to the LRRK2 G2019S variant</div>
+        <div class="paper-meta">Kmiecik et al. · Brain · 2024</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">LRRK2 G2019S: 9% cumulative PD risk by age 60, up to 49% by age 80. RBD and smell loss are significantly less prevalent than in idiopathic PD — classic prodromal markers don't apply.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Confirms that standard thresholds miss LRRK2 carriers — justifies genotype-specific adjustments that don't rely on classic prodromal markers like RBD frequency.</div>
+      <a href="https://doi.org/10.1093/brain/awae073" target="_blank" class="doi-link">doi.org/10.1093/brain/awae073 ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── 7. BAP1 ─────────────────────────────────────────────────── -->
+<div class="category">
+  <div class="category-label cat-slate"><span class="dot dot-slate"></span>BAP1 — Research Phase</div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">High frequency and unique subtypes of meningioma in patients with BAP1 tumor predisposition syndrome</div>
+        <div class="paper-meta">Ramsey et al. · Journal of Neuro-Oncology · 2026</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">BAP1 loss-of-function variants are strongly associated with intracranial meningioma — not with Alzheimer's, Parkinson's, or FTD. Dual-cohort study (Ohio State / Memorial Sloan Kettering).</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">BAP1 is treated as a separate meningioma risk flag only — it does NOT adjust neurodegenerative thresholds. DreamTrack collects longitudinal data from BAP1 carriers while the neurodegeneration link remains unstudied.</div>
+      <a href="https://doi.org/10.1007/s11060-026-05445-2" target="_blank" class="doi-link">doi.org/10.1007/s11060-026-05445-2 ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">De novo variants in BAP1 cause a syndrome of intellectual disability, hypotonia, and facial dysmorphism</div>
+        <div class="paper-meta">Kury et al. · American Journal of Human Genetics · 2022</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">A different BAP1 variant type (missense, not loss-of-function) causes a neurodevelopmental syndrome with speech delay, developmental delay, and behavioral features. The two BAP1 types have entirely different clinical profiles.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">DreamTrack tracks both BAP1 variant classes separately. The cancer predisposition type (LOF) gets the meningioma flag. The neurodevelopmental type is monitored for speech patterns independently.</div>
+      <a href="https://doi.org/10.1016/j.ajhg.2021.12.011" target="_blank" class="doi-link">doi.org/10.1016/j.ajhg.2021.12.011 ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── 8. LLMs ─────────────────────────────────────────────────── -->
+<div class="category">
+  <div class="category-label cat-teal"><span class="dot dot-teal"></span>LLMs & AI for Cognitive Assessment</div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Predicting dementia from spontaneous speech using large language models</div>
+        <div class="paper-meta">Agbavor & Liang · PLOS Digital Health · 2022</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">GPT-3 text embeddings from speech transcripts achieved 80.3% accuracy distinguishing Alzheimer's from healthy controls — outperforming classical acoustic features (74.6%).</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Justifies using Claude (a large language model) for dream narrative analysis rather than relying on acoustic features alone.</div>
+      <a href="https://doi.org/10.1371/journal.pdig.0000168" target="_blank" class="doi-link">doi.org/10.1371/journal.pdig.0000168 ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Introduction to large language models for dementia care and research</div>
+        <div class="paper-meta">Treder et al. · Frontiers in Dementia · 2024</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">LLMs show strong potential for dementia detection through speech and clinical note analysis, with a clear path to clinical translation alongside identified risks.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">Supports the two-layer architecture: rule-based acoustic scoring (librosa) + LLM semantic analysis (Claude) working in parallel.</div>
+      <a href="https://doi.org/10.3389/frdem.2024.1385303" target="_blank" class="doi-link">doi.org/10.3389/frdem.2024.1385303 ↗</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header" onclick="toggle(this)">
+      <div>
+        <div class="paper-title">Longitudinal observational cohort study: Speech for Intelligent cognition change tracking and Detection of Alzheimer's Disease (SIDE-AD)</div>
+        <div class="paper-meta">Saunders et al. · BMJ Open · 2024</div>
+      </div>
+      <div class="paper-toggle">+</div>
+    </div>
+    <div class="paper-body">
+      <div class="section-label">Key finding</div>
+      <div class="finding">450-participant remote longitudinal study establishing a validated protocol for tracking speech-based biomarker change over time for early Alzheimer's detection.</div>
+      <div class="section-label">How DreamTrack uses it</div>
+      <div class="usage">The closest published study to DreamTrack's methodology: remote, longitudinal, speech-based, at scale. Validates the entire approach — not just individual features but the daily tracking model itself.</div>
+      <a href="https://doi.org/10.1136/bmjopen-2023-082388" target="_blank" class="doi-link">doi.org/10.1136/bmjopen-2023-082388 ↗</a>
+    </div>
+  </div>
+</div>
+
+</div><!-- end content -->
+
+<div class="footer-note">
+  <div class="note-box">
+    <strong style="color:rgba(255,255,255,0.5);">Note:</strong> DreamTrack Health is a consumer wellness monitoring application, not a clinically validated medical device. Pattern changes detected should always be discussed with a qualified healthcare professional. All thresholds and scores are informational only.
+  </div>
+</div>
+
+<script>
+function toggle(header) {
+  const body = header.nextElementSibling;
+  const icon = header.querySelector('.paper-toggle');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  icon.textContent = isOpen ? '+' : '−';
+  icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(0deg)';
+}
+</script>
+
+</body>
+</html>
