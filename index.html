@@ -393,36 +393,272 @@ em { font-style:italic; }
 
 
 <!-- ══════════════════════════════════════════════════════════════
-     5. THE SCIENCE
+     5. PARKINSON'S SCORING
 ══════════════════════════════════════════════════════════════ -->
-<div class="slide dark" style="padding:52px 80px;">
-  <div class="eyebrow">The science</div>
-  <h3 style="margin-bottom:20px;">Every threshold comes from a published study.</h3>
+<div class="slide dark" style="padding:44px 72px;">
+  <div class="eyebrow">Analysis · Parkinson's disease</div>
+  <h3 style="margin-bottom:4px; color:#fff;">How the Parkinson score is built</h3>
+  <p style="font-size:11.5px; color:rgba(255,255,255,.3); margin-bottom:16px; text-align:center;">librosa extracts these features from each recording. Scores add up to a maximum of 1.0.</p>
 
-  <div class="cards c2" style="max-width:860px;">
-    <div class="card">
-      <div class="card-label">Parkinson's — voice</div>
-      <div class="card-title">Pitch variation below 20 Hz → +0.30 score</div>
-      <div class="card-body">Monotone speech (low F0 standard deviation) is the single most specific prodromal PD marker found in a 7-center study.</div>
-      <div class="card-cite"><a href="https://doi.org/10.1002/ana.26085" target="_blank" style="color:inherit;">Rusz et al., Annals of Neurology, 2021</a></div>
+  <div style="width:100%; max-width:880px; border:1px solid rgba(255,255,255,.08); border-radius:12px; overflow:hidden; font-size:0;">
+    <div style="display:grid; grid-template-columns:148px 180px 56px 1fr; background:rgba(255,255,255,.06); padding:9px 18px; gap:12px;">
+      <div style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3);">Feature</div>
+      <div style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3);">Threshold</div>
+      <div style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3);">+Score</div>
+      <div style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3);">Research basis</div>
     </div>
-    <div class="card">
-      <div class="card-label">Depression — voice</div>
-      <div class="card-title">Flat loudness + slow speech → +0.45 score</div>
-      <div class="card-body">Energy variation and prosodic flatness outperform pitch alone. AUC 0.93 in a meta-analysis of 2,000+ participants.</div>
-      <div class="card-cite"><a href="https://doi.org/10.1186/s12888-024-06253-6" target="_blank" style="color:inherit;">Menne et al., BMC Psychiatry, 2024</a></div>
+    <div style="display:grid; grid-template-columns:148px 180px 56px 1fr; padding:10px 18px; gap:12px; border-top:1px solid rgba(255,255,255,.06);">
+      <div style="font-size:12px; font-weight:600; color:#c4b5fd; font-family:'SF Mono','Fira Code',monospace;">f0_std</div>
+      <div style="font-size:12px; color:rgba(255,255,255,.55);">&lt; 20 Hz (monopitch)</div>
+      <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">+0.30</div>
+      <div style="font-size:11px; color:rgba(255,255,255,.35); line-height:1.5;">Reduced pitch variability = hypokinetic dysarthria. Single most specific prodromal PD marker in 7-center international study. <em>Rusz et al., Ann Neurol 2021</em></div>
     </div>
-    <div class="card">
-      <div class="card-label">Alzheimer's — voice</div>
-      <div class="card-title">Speech rate &lt; 2.5 syl/sec → +0.30 score</div>
-      <div class="card-body">Speech rate and articulation rate are the strongest acoustic markers across a meta-analysis of 34 studies.</div>
-      <div class="card-cite"><a href="https://doi.org/10.14283/jpad.2024.99" target="_blank" style="color:inherit;">Saeedi et al., J Prev Alzheimers Dis, 2024</a></div>
+    <div style="display:grid; grid-template-columns:148px 180px 56px 1fr; padding:10px 18px; gap:12px; border-top:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.025);">
+      <div style="font-size:12px; font-weight:600; color:#c4b5fd; font-family:'SF Mono','Fira Code',monospace;">energy_std_db</div>
+      <div style="font-size:12px; color:rgba(255,255,255,.55);">&lt; 4 dB (flat loudness)</div>
+      <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">+0.20</div>
+      <div style="font-size:11px; color:rgba(255,255,255,.35); line-height:1.5;">Loudness variation sensitive to PD progression alongside articulation speed. <em>Rusz et al., Neurosci Biobehav Rev 2024</em></div>
     </div>
-    <div class="card">
-      <div class="card-label">RBD — dream content</div>
-      <div class="card-title">Fear + aggression in dreams → elevated RBD score</div>
-      <div class="card-body">REM behavior disorder — a prodromal marker for Parkinson's — is associated with violent dream content. 90% of RBD patients eventually develop PD.</div>
-      <div class="card-cite">Fasiello et al., Sleep Medicine, 2022</div>
+    <div style="display:grid; grid-template-columns:148px 180px 56px 1fr; padding:10px 18px; gap:12px; border-top:1px solid rgba(255,255,255,.06);">
+      <div style="font-size:12px; font-weight:600; color:#c4b5fd; font-family:'SF Mono','Fira Code',monospace;">jitter_local</div>
+      <div style="font-size:12px; color:rgba(255,255,255,.55);">&gt; 0.01 — vocal tremor</div>
+      <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">≤+0.20</div>
+      <div style="font-size:11px; color:rgba(255,255,255,.35); line-height:1.5;">F0 cycle-to-cycle perturbation; clinical norm &lt; 1%. Scales linearly with severity. <em>Baken &amp; Orlikoff 2000</em></div>
+    </div>
+    <div style="display:grid; grid-template-columns:148px 180px 56px 1fr; padding:10px 18px; gap:12px; border-top:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.025);">
+      <div style="font-size:12px; font-weight:600; color:#c4b5fd; font-family:'SF Mono','Fira Code',monospace;">shimmer_local</div>
+      <div style="font-size:12px; color:rgba(255,255,255,.55);">elevated — amp instability</div>
+      <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">≤+0.15</div>
+      <div style="font-size:11px; color:rgba(255,255,255,.35); line-height:1.5;">RMS amplitude perturbation = irregular vocal fold vibration. Scales with value. <em>Baken &amp; Orlikoff 2000</em></div>
+    </div>
+    <div style="display:grid; grid-template-columns:148px 180px 56px 1fr; padding:10px 18px; gap:12px; border-top:1px solid rgba(255,255,255,.06);">
+      <div style="font-size:12px; font-weight:600; color:#c4b5fd; font-family:'SF Mono','Fira Code',monospace;">hnr</div>
+      <div style="font-size:12px; color:rgba(255,255,255,.55);">&lt; 10 dB (hoarse/breathy)</div>
+      <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">+0.15</div>
+      <div style="font-size:11px; color:rgba(255,255,255,.35); line-height:1.5;">Harmonics-to-Noise Ratio. Pathological below 10 dB; clinical norm &gt; 20 dB. <em>Baken &amp; Orlikoff 2000</em></div>
+    </div>
+  </div>
+  <p style="font-size:10.5px; color:rgba(255,255,255,.18); margin-top:10px; text-align:center;">Extracted with librosa pyin (probabilistic YIN). Minimum 15 sec recording required for stable statistics.</p>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     6. ALZHEIMER'S SCORING
+══════════════════════════════════════════════════════════════ -->
+<div class="slide dark" style="padding:44px 72px;">
+  <div class="eyebrow">Analysis · Alzheimer's disease</div>
+  <h3 style="margin-bottom:4px; color:#fff;">How the Alzheimer score is built</h3>
+  <p style="font-size:11.5px; color:rgba(255,255,255,.3); margin-bottom:16px; text-align:center;">Speech rate and pause patterns are the strongest acoustic markers across 34 studies (Saeedi 2024 meta-analysis).</p>
+
+  <div style="width:100%; max-width:880px; border:1px solid rgba(255,255,255,.08); border-radius:12px; overflow:hidden;">
+    <div style="display:grid; grid-template-columns:148px 200px 56px 1fr; background:rgba(255,255,255,.06); padding:9px 18px; gap:12px;">
+      <div style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3);">Feature</div>
+      <div style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3);">Threshold</div>
+      <div style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3);">+Score</div>
+      <div style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3);">Research basis</div>
+    </div>
+    <div style="display:grid; grid-template-columns:148px 200px 56px 1fr; padding:10px 18px; gap:12px; border-top:1px solid rgba(255,255,255,.06);">
+      <div style="font-size:12px; font-weight:600; color:#a78bfa; font-family:'SF Mono','Fira Code',monospace;">speech_rate_sps</div>
+      <div style="font-size:12px; color:rgba(255,255,255,.55);">&lt; 2.5 onset-proxies/sec</div>
+      <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">+0.30</div>
+      <div style="font-size:11px; color:rgba(255,255,255,.35); line-height:1.5;">Strongest acoustic AD marker across meta-analysis. Rate is measured over net speech time (pauses excluded) to avoid false signals. <em>Saeedi et al., J Prev Alzheimers Dis 2024</em></div>
+    </div>
+    <div style="display:grid; grid-template-columns:148px 200px 56px 1fr; padding:10px 18px; gap:12px; border-top:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.025);">
+      <div style="font-size:12px; font-weight:600; color:#a78bfa; font-family:'SF Mono','Fira Code',monospace;">mean_pause_ms</div>
+      <div style="font-size:12px; color:rgba(255,255,255,.55);">&gt; 800 ms average pause</div>
+      <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">+0.25</div>
+      <div style="font-size:11px; color:rgba(255,255,255,.35); line-height:1.5;">Long pauses signal word-finding hesitation. Pause patterns were key in voice-based AD detection (AUC 0.77 acoustic alone). <em>Hajjar et al., Alzheimer's &amp; Dementia: DADM 2023</em></div>
+    </div>
+    <div style="display:grid; grid-template-columns:148px 200px 56px 1fr; padding:10px 18px; gap:12px; border-top:1px solid rgba(255,255,255,.06);">
+      <div style="font-size:12px; font-weight:600; color:#a78bfa; font-family:'SF Mono','Fira Code',monospace;">pause_ratio</div>
+      <div style="font-size:12px; color:rgba(255,255,255,.55);">&gt; 0.5 (50%+ silence)</div>
+      <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">+0.20</div>
+      <div style="font-size:11px; color:rgba(255,255,255,.35); line-height:1.5;">More than half the recording is silence — extreme hesitancy and retrieval failure. <em>Hajjar et al. 2023</em></div>
+    </div>
+    <div style="display:grid; grid-template-columns:148px 200px 56px 1fr; padding:10px 18px; gap:12px; border-top:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.025);">
+      <div style="font-size:12px; font-weight:600; color:#a78bfa; font-family:'SF Mono','Fira Code',monospace;">voiced_fraction</div>
+      <div style="font-size:12px; color:rgba(255,255,255,.55);">&lt; 0.5</div>
+      <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">+0.15</div>
+      <div style="font-size:11px; color:rgba(255,255,255,.35); line-height:1.5;">Proportion of frames with detected pitch. Low value confirms sparse speech output, reinforcing the pause signal.</div>
+    </div>
+  </div>
+  <div style="margin-top:14px; padding:10px 16px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:10px; max-width:880px; width:100%;">
+    <p style="font-size:11px; color:rgba(255,255,255,.35); text-align:center; line-height:1.6;"><strong style="color:rgba(255,255,255,.6);">+ Dream analysis:</strong> Claude also scores the transcript for narrative incoherence, lexical emptiness, and temporal disorientation (Garrard et al. Brain 2005; Hajjar 2023) — this second score is separate from the voice score.</p>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     7. DEPRESSION SCORING
+══════════════════════════════════════════════════════════════ -->
+<div class="slide dark" style="padding:44px 72px;">
+  <div class="eyebrow">Analysis · Depression</div>
+  <h3 style="margin-bottom:4px; color:#fff;">How the depression score is built</h3>
+  <p style="font-size:11.5px; color:rgba(255,255,255,.3); margin-bottom:16px; text-align:center;">SVM model on these features reached AUC 0.93 — on par with clinical PHQ-9 questionnaire (Menne 2024).</p>
+
+  <div style="width:100%; max-width:880px; border:1px solid rgba(255,255,255,.08); border-radius:12px; overflow:hidden;">
+    <div style="display:grid; grid-template-columns:148px 200px 56px 1fr; background:rgba(255,255,255,.06); padding:9px 18px; gap:12px;">
+      <div style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3);">Feature</div>
+      <div style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3);">Threshold</div>
+      <div style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3);">+Score</div>
+      <div style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3);">Research basis</div>
+    </div>
+    <div style="display:grid; grid-template-columns:148px 200px 56px 1fr; padding:10px 18px; gap:12px; border-top:1px solid rgba(255,255,255,.06);">
+      <div style="font-size:12px; font-weight:600; color:#f9a8d4; font-family:'SF Mono','Fira Code',monospace;">f0_std</div>
+      <div style="font-size:12px; color:rgba(255,255,255,.55);">&lt; 12 Hz (severe flatness)</div>
+      <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">+0.25</div>
+      <div style="font-size:11px; color:rgba(255,255,255,.35); line-height:1.5;">Pitch slope, kurtosis, and skewness are primary discriminators (η²=0.30–0.31). f0_std is the closest single-feature proxy. <em>Menne et al., BMC Psychiatry 2024</em></div>
+    </div>
+    <div style="display:grid; grid-template-columns:148px 200px 56px 1fr; padding:10px 18px; gap:12px; border-top:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.025);">
+      <div style="font-size:12px; font-weight:600; color:#f9a8d4; font-family:'SF Mono','Fira Code',monospace;">energy_std_db</div>
+      <div style="font-size:12px; color:rgba(255,255,255,.55);">&lt; 5 dB (flat affect)</div>
+      <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">+0.20</div>
+      <div style="font-size:11px; color:rgba(255,255,255,.35); line-height:1.5;">Secondary discriminator in Menne 2024. Reduced loudness variation reflects blunted affect — reduced emotional reactivity in depression.</div>
+    </div>
+    <div style="display:grid; grid-template-columns:148px 200px 56px 1fr; padding:10px 18px; gap:12px; border-top:1px solid rgba(255,255,255,.06);">
+      <div style="font-size:12px; font-weight:600; color:#f9a8d4; font-family:'SF Mono','Fira Code',monospace;">pause_ratio</div>
+      <div style="font-size:12px; color:rgba(255,255,255,.55);">&gt; 0.4 (40%+ silence)</div>
+      <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">+0.20</div>
+      <div style="font-size:11px; color:rgba(255,255,255,.35); line-height:1.5;">Elevated pause ratio in MDD — psychomotor slowing. Validated as longitudinal treatment response marker via IVR. <em>Mundt et al., J Neurolinguistics 2007</em></div>
+    </div>
+    <div style="display:grid; grid-template-columns:148px 200px 56px 1fr; padding:10px 18px; gap:12px; border-top:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.025);">
+      <div style="font-size:12px; font-weight:600; color:#f9a8d4; font-family:'SF Mono','Fira Code',monospace;">speech_rate_sps</div>
+      <div style="font-size:12px; color:rgba(255,255,255,.55);">&lt; 2.0 (very slow)</div>
+      <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">+0.20</div>
+      <div style="font-size:11px; color:rgba(255,255,255,.35); line-height:1.5;">Psychomotor retardation in depression manifests as reduced speech rate. Also in Mundt 2007 and primary care study (Mazur 2025, 71.3% sensitivity).</div>
+    </div>
+    <div style="display:grid; grid-template-columns:148px 200px 56px 1fr; padding:10px 18px; gap:12px; border-top:1px solid rgba(255,255,255,.06);">
+      <div style="font-size:12px; font-weight:600; color:#f9a8d4; font-family:'SF Mono','Fira Code',monospace;">f0_mean</div>
+      <div style="font-size:12px; color:rgba(255,255,255,.55);">&lt; 100 Hz (low mean pitch)</div>
+      <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">+0.15</div>
+      <div style="font-size:11px; color:rgba(255,255,255,.35); line-height:1.5;">Unusually low overall pitch — monotone delivery pattern commonly observed in depressed speech.</div>
+    </div>
+  </div>
+  <div style="margin-top:14px; padding:10px 16px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:10px; max-width:880px; width:100%;">
+    <p style="font-size:11px; color:rgba(255,255,255,.35); text-align:center; line-height:1.6;"><strong style="color:rgba(255,255,255,.6);">+ Dream analysis:</strong> Claude scores the transcript for hopelessness, passivity, isolation, and lack of agency (Beck 1979 cognitive model; Hobson et al. 1998).</p>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     8. RBD DREAM SCORING
+══════════════════════════════════════════════════════════════ -->
+<div class="slide dark" style="padding:44px 72px;">
+  <div class="eyebrow">Analysis · REM Sleep Behavior Disorder</div>
+  <h3 style="margin-bottom:4px; color:#fff;">How the RBD dream score is built</h3>
+  <p style="font-size:11.5px; color:rgba(255,255,255,.3); margin-bottom:16px; text-align:center;">Two-layer analysis: rule-based keyword detection → Claude semantic override. Claude wins if available.</p>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; max-width:880px; width:100%;">
+    <div>
+      <div style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:8px; padding-bottom:6px; border-bottom:1px solid rgba(255,255,255,.08);">Layer 1 — Keyword rules (Python)</div>
+      <div style="border:1px solid rgba(255,255,255,.08); border-radius:10px; overflow:hidden;">
+        <div style="display:grid; grid-template-columns:1fr 48px; padding:9px 14px; gap:10px; border-bottom:1px solid rgba(255,255,255,.06);">
+          <div style="font-size:11.5px; color:rgba(255,255,255,.5); line-height:1.5;">Human attack words <strong style="color:rgba(255,255,255,.75);">AND</strong> animal attack words both present</div>
+          <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif; align-self:center;">+0.40</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 48px; padding:9px 14px; gap:10px; border-bottom:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.025);">
+          <div style="font-size:11.5px; color:rgba(255,255,255,.5); line-height:1.5;">Human <strong style="color:rgba(255,255,255,.75);">OR</strong> animal attack (one type only)</div>
+          <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif; align-self:center;">+0.25</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 48px; padding:9px 14px; gap:10px; border-bottom:1px solid rgba(255,255,255,.06);">
+          <div style="font-size:11.5px; color:rgba(255,255,255,.5); line-height:1.5;">First-person motion verbs (run, flee, fight…) ≥ 2</div>
+          <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif; align-self:center;">≤+0.25</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 48px; padding:9px 14px; gap:10px; border-bottom:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.025);">
+          <div style="font-size:11.5px; color:rgba(255,255,255,.5); line-height:1.5;">nightmare_indicator (valence &lt; −0.3 AND arousal &gt; 0.4 AND motion)</div>
+          <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif; align-self:center;">+0.20</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 48px; padding:9px 14px; gap:10px;">
+          <div style="font-size:11.5px; color:rgba(255,255,255,.5); line-height:1.5;">emotional_arousal &gt; 0.5</div>
+          <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif; align-self:center;">+0.15</div>
+        </div>
+      </div>
+      <p style="font-size:10px; color:rgba(255,255,255,.2); margin-top:8px; line-height:1.5;">Human attacks: chased, grabbed, attacked, strangled… Animal attacks: wolf, bear, lion, bitten, mauled… (only unambiguously threatening — generic "dog" excluded)</p>
+    </div>
+    <div>
+      <div style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:8px; padding-bottom:6px; border-bottom:1px solid rgba(255,255,255,.08);">Layer 2 — Claude semantic scoring (overrides Layer 1)</div>
+      <div style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:10px; padding:14px;">
+        <p style="font-size:11.5px; color:rgba(255,255,255,.5); line-height:1.65; margin-bottom:10px;">Claude reads the full transcript and scores on the same 0–1 scale. It handles negation ("I was <em>not</em> being chased"), context ("the monster was friendly"), and ambiguous language that keyword rules miss.</p>
+        <p style="font-size:11px; color:rgba(255,255,255,.3); line-height:1.55; margin-bottom:8px;">Grounding in the prompt:<br/>
+        <em>"Being chased or attacked by humans is the most diagnostically specific RBD marker (76.8% of RBD patients — Fasiello 2022). Animal attacks: 39.9%."</em></p>
+        <div style="padding:8px 12px; background:rgba(255,255,255,.04); border-radius:6px; font-size:10.5px; color:rgba(255,255,255,.3); line-height:1.55;">
+          Sources: Fasiello et al. J Clin Med 2022 · Bugalho et al. Sleep Med 2024 · Rusz et al. Ann Neurol 2021
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     9. FTD SCORING
+══════════════════════════════════════════════════════════════ -->
+<div class="slide dark" style="padding:44px 72px;">
+  <div class="eyebrow">Analysis · Frontotemporal Dementia</div>
+  <h3 style="margin-bottom:4px; color:#fff;">How the FTD score is built</h3>
+  <p style="font-size:11.5px; color:rgba(255,255,255,.3); margin-bottom:14px; text-align:center;">Two independent signals — voice prosody and language complexity — are scored separately.</p>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; max-width:880px; width:100%;">
+    <div>
+      <div style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:8px; padding-bottom:6px; border-bottom:1px solid rgba(255,255,255,.08);">FTD voice score (acoustic)</div>
+      <div style="border:1px solid rgba(255,255,255,.08); border-radius:10px; overflow:hidden;">
+        <div style="display:grid; grid-template-columns:130px 1fr 44px; padding:9px 14px; gap:10px; background:rgba(255,255,255,.06);">
+          <div style="font-size:9px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,.3);">Feature</div>
+          <div style="font-size:9px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,.3);">Threshold</div>
+          <div style="font-size:9px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,.3);">+</div>
+        </div>
+        <div style="display:grid; grid-template-columns:130px 1fr 44px; padding:8px 14px; gap:10px; border-top:1px solid rgba(255,255,255,.06);">
+          <div style="font-size:11.5px; font-weight:600; color:#fb923c; font-family:'SF Mono','Fira Code',monospace;">f0_std</div>
+          <div style="font-size:11.5px; color:rgba(255,255,255,.45);">&lt; 15 Hz</div>
+          <div style="font-size:12px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">0.25</div>
+        </div>
+        <div style="display:grid; grid-template-columns:130px 1fr 44px; padding:8px 14px; gap:10px; border-top:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.025);">
+          <div style="font-size:11.5px; font-weight:600; color:#fb923c; font-family:'SF Mono','Fira Code',monospace;">f0_range</div>
+          <div style="font-size:11.5px; color:rgba(255,255,255,.45);">&lt; 40 Hz</div>
+          <div style="font-size:12px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">0.20</div>
+        </div>
+        <div style="display:grid; grid-template-columns:130px 1fr 44px; padding:8px 14px; gap:10px; border-top:1px solid rgba(255,255,255,.06);">
+          <div style="font-size:11.5px; font-weight:600; color:#fb923c; font-family:'SF Mono','Fira Code',monospace;">pause_rate</div>
+          <div style="font-size:11.5px; color:rgba(255,255,255,.45);">&gt; 3/sec</div>
+          <div style="font-size:12px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">0.25</div>
+        </div>
+        <div style="display:grid; grid-template-columns:130px 1fr 44px; padding:8px 14px; gap:10px; border-top:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.025);">
+          <div style="font-size:11.5px; font-weight:600; color:#fb923c; font-family:'SF Mono','Fira Code',monospace;">speech_rate_sps</div>
+          <div style="font-size:11.5px; color:rgba(255,255,255,.45);">&lt; 2.5/sec</div>
+          <div style="font-size:12px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">0.20</div>
+        </div>
+        <div style="display:grid; grid-template-columns:130px 1fr 44px; padding:8px 14px; gap:10px; border-top:1px solid rgba(255,255,255,.06);">
+          <div style="font-size:11.5px; font-weight:600; color:#fb923c; font-family:'SF Mono','Fira Code',monospace;">energy_std_db</div>
+          <div style="font-size:11.5px; color:rgba(255,255,255,.45);">&lt; 5 dB</div>
+          <div style="font-size:12px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">0.10</div>
+        </div>
+      </div>
+      <p style="font-size:10px; color:rgba(255,255,255,.2); margin-top:7px; line-height:1.5;"><em>Vonk et al., Alzheimer's &amp; Dementia 2025</em> (3 remote features → 84.8% bvFTD accuracy)</p>
+    </div>
+    <div>
+      <div style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:8px; padding-bottom:6px; border-bottom:1px solid rgba(255,255,255,.08);">FTD language score (transcript, spaCy + rule-based)</div>
+      <div style="border:1px solid rgba(255,255,255,.08); border-radius:10px; overflow:hidden;">
+        <div style="display:grid; grid-template-columns:1fr 44px; padding:9px 14px; gap:10px; background:rgba(255,255,255,.06);">
+          <div style="font-size:9px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,.3);">Language feature</div>
+          <div style="font-size:9px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,.3);">+</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 44px; padding:9px 14px; gap:10px; border-top:1px solid rgba(255,255,255,.06);">
+          <div><div style="font-size:11.5px; color:rgba(255,255,255,.65); margin-bottom:2px;">type_token_ratio &lt; 0.45</div><div style="font-size:10.5px; color:rgba(255,255,255,.3); line-height:1.4;">Vocabulary poverty — limited lexical diversity (Garrard 2005)</div></div>
+          <div style="font-size:12px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif; align-self:center;">0.25</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 44px; padding:9px 14px; gap:10px; border-top:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.025);">
+          <div><div style="font-size:11.5px; color:rgba(255,255,255,.65); margin-bottom:2px;">causal_density &lt; 0.20</div><div style="font-size:10.5px; color:rgba(255,255,255,.3); line-height:1.4;">Fewer than 1 causal connective per 5 sentences — absent causal reasoning (Vonk 2025)</div></div>
+          <div style="font-size:12px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif; align-self:center;">0.30</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 44px; padding:9px 14px; gap:10px; border-top:1px solid rgba(255,255,255,.06);">
+          <div><div style="font-size:11.5px; color:rgba(255,255,255,.65); margin-bottom:2px;">mean_sentence_length &lt; 6</div><div style="font-size:10.5px; color:rgba(255,255,255,.3); line-height:1.4;">Very short sentences across the narration — simplified syntax (Vonk 2025)</div></div>
+          <div style="font-size:12px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif; align-self:center;">0.20</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 44px; padding:9px 14px; gap:10px; border-top:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.025);">
+          <div><div style="font-size:11.5px; color:rgba(255,255,255,.65); margin-bottom:2px;">narrative_progression &lt; 0.3</div><div style="font-size:10.5px; color:rgba(255,255,255,.3); line-height:1.4;">Very few temporal anchors per sentence — lost story thread (Garrard 2005)</div></div>
+          <div style="font-size:12px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif; align-self:center;">0.25</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
