@@ -359,7 +359,7 @@ em { font-style:italic; }
     <div class="dark-card">
       <div class="dc-label">Voice analysis</div>
       <div class="dc-title">How you sound</div>
-      <div class="dc-body">The app measures 89 language-independent acoustic features: pitch variation, speech rate, pause patterns, vocal tremor. These are the same markers researchers use in clinical studies. Each feature maps to a specific condition with a citation from a peer-reviewed paper.</div>
+      <div class="dc-body">The app measures 36 language-independent acoustic features: pitch variation, speech rate, pause patterns, vocal tremor. These are the same markers researchers use in clinical studies. Each feature maps to a specific condition with a citation from a peer-reviewed paper. Thresholds are sex-stratified — women and men have different natural F0 ranges, so a single cutoff would miss real signal.</div>
     </div>
     <div class="dark-card">
       <div class="dc-label">Dream analysis</div>
@@ -370,7 +370,7 @@ em { font-style:italic; }
 
   <div style="margin-top:20px; padding:14px 20px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:12px; max-width:780px; width:100%;">
     <div style="font-size:12px; color:rgba(255,255,255,.35); text-align:center; line-height:1.6;">
-      Audio → <strong style="color:rgba(255,255,255,.7);">librosa</strong> (89 language-independent acoustic features) → voice scores &nbsp;|&nbsp; Audio → <strong style="color:rgba(255,255,255,.7);">Amazon Transcribe / Whisper</strong> → transcript → <strong style="color:rgba(255,255,255,.7);">spaCy + Claude</strong> (dream NLP) → dream scores &nbsp;|&nbsp; both stored in <strong style="color:rgba(255,255,255,.7);">PostgreSQL</strong>
+      Audio → <strong style="color:rgba(255,255,255,.7);">librosa</strong> (36 language-independent acoustic features) → voice scores &nbsp;|&nbsp; Audio → <strong style="color:rgba(255,255,255,.7);">Amazon Transcribe / Whisper</strong> → transcript → <strong style="color:rgba(255,255,255,.7);">spaCy + Claude</strong> (dream NLP) → dream scores &nbsp;|&nbsp; both stored in <strong style="color:rgba(255,255,255,.7);">PostgreSQL</strong>
     </div>
   </div>
 </div>
@@ -406,7 +406,7 @@ em { font-style:italic; }
     <div class="dark-card">
       <div class="dc-label">Genetic personalisation</div>
       <div class="dc-title">APOE ε4, LRRK2, GBA1, BAP1</div>
-      <div class="dc-body">Enter known mutations and your alert thresholds adjust automatically. Someone with APOE ε4 homozygous needs a different baseline than someone without based on Fortea et al. Nature Medicine 2024.</div>
+      <div class="dc-body">During signup, users enter their birth year, biological sex, known genetic mutations, and family history of neurological conditions. This data is collected once and used to personalize every score. Someone with APOE ε4 homozygous needs a different baseline than someone without — based on Fortea et al. Nature Medicine 2024. Sex and age calibrate the acoustic thresholds from day one.</div>
     </div>
     <div class="dark-card">
       <div class="dc-label">Research page</div>
@@ -435,9 +435,9 @@ em { font-style:italic; }
     </div>
     <div style="display:grid; grid-template-columns:148px 180px 56px 1fr; padding:10px 18px; gap:12px; border-top:1px solid rgba(255,255,255,.06);">
       <div style="font-size:12px; font-weight:600; color:#c4b5fd; font-family:'SF Mono','Fira Code',monospace;">f0_std</div>
-      <div style="font-size:12px; color:rgba(255,255,255,.55);">&lt; 20 Hz (monopitch)</div>
+      <div style="font-size:12px; color:rgba(255,255,255,.55);">&lt; 20 Hz male / &lt; 30 Hz female</div>
       <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">+0.30</div>
-      <div style="font-size:11px; color:rgba(255,255,255,.35); line-height:1.5;">Used to set the 20 Hz cutoff this paper identified monopitch as the single most specific prodromal PD marker across 7 centers. → <a href="https://doi.org/10.1002/ana.26085" target="_blank" style="color:rgba(255,255,255,.5); text-decoration:underline; text-underline-offset:2px;">Rusz et al., Ann Neurol 2021</a></div>
+      <div style="font-size:11px; color:rgba(255,255,255,.35); line-height:1.5;">Used to set the 20 Hz cutoff — monopitch is the single most specific prodromal PD marker across 7 centers. Threshold is sex-stratified: women naturally have higher f0_std (35–50 Hz vs. 25–40 Hz in men), so a single 20 Hz cutoff under-flags women. → <a href="https://doi.org/10.1002/ana.26085" target="_blank" style="color:rgba(255,255,255,.5); text-decoration:underline; text-underline-offset:2px;">Rusz et al., Ann Neurol 2021</a>; Baken &amp; Orlikoff 2000</div>
     </div>
     <div style="display:grid; grid-template-columns:148px 180px 56px 1fr; padding:10px 18px; gap:12px; border-top:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.025);">
       <div style="font-size:12px; font-weight:600; color:#c4b5fd; font-family:'SF Mono','Fira Code',monospace;">energy_std_db</div>
@@ -531,9 +531,9 @@ em { font-style:italic; }
     </div>
     <div style="display:grid; grid-template-columns:148px 200px 56px 1fr; padding:10px 18px; gap:12px; border-top:1px solid rgba(255,255,255,.06);">
       <div style="font-size:12px; font-weight:600; color:#f9a8d4; font-family:'SF Mono','Fira Code',monospace;">f0_std</div>
-      <div style="font-size:12px; color:rgba(255,255,255,.55);">&lt; 12 Hz (severe flatness)</div>
+      <div style="font-size:12px; color:rgba(255,255,255,.55);">&lt; 12 Hz male / &lt; 20 Hz female</div>
       <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">+0.25</div>
-      <div style="font-size:11px; color:rgba(255,255,255,.35); line-height:1.5;">Used to derive the 12 Hz cutoff pitch dynamics were the primary discriminators (η²=0.30–0.31) in the SVM model. → <a href="https://doi.org/10.1186/s12888-024-06253-6" target="_blank" style="color:rgba(255,255,255,.5); text-decoration:underline; text-underline-offset:2px;">Menne et al., BMC Psychiatry 2024</a></div>
+      <div style="font-size:11px; color:rgba(255,255,255,.35); line-height:1.5;">Used to derive the cutoff — pitch dynamics were the primary discriminators (η²=0.30–0.31) in the SVM model. Sex-stratified: female threshold raised to 20 Hz to account for naturally higher f0_std in women. → <a href="https://doi.org/10.1186/s12888-024-06253-6" target="_blank" style="color:rgba(255,255,255,.5); text-decoration:underline; text-underline-offset:2px;">Menne et al., BMC Psychiatry 2024</a></div>
     </div>
     <div style="display:grid; grid-template-columns:148px 200px 56px 1fr; padding:10px 18px; gap:12px; border-top:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.025);">
       <div style="font-size:12px; font-weight:600; color:#f9a8d4; font-family:'SF Mono','Fira Code',monospace;">energy_std_db</div>
@@ -555,7 +555,7 @@ em { font-style:italic; }
     </div>
     <div style="display:grid; grid-template-columns:148px 200px 56px 1fr; padding:10px 18px; gap:12px; border-top:1px solid rgba(255,255,255,.06);">
       <div style="font-size:12px; font-weight:600; color:#f9a8d4; font-family:'SF Mono','Fira Code',monospace;">f0_mean</div>
-      <div style="font-size:12px; color:rgba(255,255,255,.55);">&lt; 100 Hz (low mean pitch)</div>
+      <div style="font-size:12px; color:rgba(255,255,255,.55);">&lt; 100 Hz male / &lt; 160 Hz female</div>
       <div style="font-size:13px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">+0.15</div>
       <div style="font-size:11px; color:rgba(255,255,255,.35); line-height:1.5;">Unusually low overall pitch monotone delivery pattern commonly observed in depressed speech.</div>
     </div>
@@ -635,7 +635,7 @@ em { font-style:italic; }
         </div>
         <div style="display:grid; grid-template-columns:130px 1fr 44px; padding:8px 14px; gap:10px; border-top:1px solid rgba(255,255,255,.06);">
           <div style="font-size:11.5px; font-weight:600; color:#fb923c; font-family:'SF Mono','Fira Code',monospace;">f0_std</div>
-          <div style="font-size:11.5px; color:rgba(255,255,255,.45);">&lt; 15 Hz</div>
+          <div style="font-size:11.5px; color:rgba(255,255,255,.45);">&lt; 15 Hz male / &lt; 22 Hz female</div>
           <div style="font-size:12px; font-weight:700; color:#86efac; font-family:Figtree,sans-serif;">0.25</div>
         </div>
         <div style="display:grid; grid-template-columns:130px 1fr 44px; padding:8px 14px; gap:10px; border-top:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.025);">
@@ -835,7 +835,7 @@ em { font-style:italic; }
       <div class="tl-n">01</div>
       <div class="tl-c">
         <div class="tl-t">Reading the papers first</div>
-        <div class="tl-d">Before writing any code, I read the actual studies. Every threshold like f0_std &lt; 20 Hz for Parkinson's came from a specific peer-reviewed paper. If I couldn't find a citation, I didn't add the feature. <a href="research.html" target="_blank" style="color:rgba(255,255,255,.55); text-decoration:underline; text-underline-offset:2px;">25 papers total.</a></div>
+        <div class="tl-d">Before writing any code, I read the actual studies. Every threshold like f0_std &lt; 20 Hz (male) / &lt; 30 Hz (female) for Parkinson's came from a specific peer-reviewed paper. If I couldn't find a citation, I didn't add the feature. <a href="research.html" target="_blank" style="color:rgba(255,255,255,.55); text-decoration:underline; text-underline-offset:2px;">25 papers total.</a></div>
       </div>
     </div>
     <div class="tl-row">
